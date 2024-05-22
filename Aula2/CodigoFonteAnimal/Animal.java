@@ -1,5 +1,5 @@
 public class Animal{
 	
-	public String nomeAnimal; 
-	public int idadeAnimal;
+	public String nome; 
+	public int idade;
 }

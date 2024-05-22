@@ -5,20 +5,49 @@ public class Principal{
 	public static void main(String[] args){
 
 		Scanner entradaDeDados = new Scanner (System.in); 
+
+		//Cadastro Cachorro
+
+        	Cachorro objetoCachorro = new Cachorro();
+
+        	System.out.println("Digite o nome do cachorro:");
+        	objetoCachorro.nome = entradaDeDados.next();
+
+        	System.out.println("Digite a idade do cachorro:");
+        	
+		objetoCachorro.idade = Integer.parseInt(entradaDeDados.next());
+
+        	System.out.println("Digite a cor do pelo do cachorro:");
+
+		objetoCachorro.corPelo = entradaDeDados.next();
+
+        	System.out.println("Nome do cachorro: " + objetoCachorro.nome);
+        	
+		System.out.println("Idade do cachorro: " + objetoCachorro.idade);
 	
-		Animal objetoAnimal = new Animal(); 
-		
-		System.out.println("Digite o nome do Animal:");  
-		
-		objetoAnimal.nomeAnimal = entradaDeDados.next();  
+		System.out.println("Cor do pelo do cachorro: " + objetoCachorro.corPelo);
 
-		System.out.println("O nome do Animal: " + objetoAnimal.nomeAnimal);
+		//Cadastro Galinha
 
-		System.out.println("Digite a idade do Animal: ");
+		Galinha objetoGalinha = new Galinha();
 		
-		objetoAnimal.idadeAnimal = Integer.parseInt(entradaDeDados.next());
+		System.out.println("Digite o nome da galinha:");
 
-		System.out.println("A idade do animal: " + objetoAnimal.idadeAnimal); 
+		objetoGalinha.nome = entradaDeDados.next();
+
+		System.out.println("Digite a idade da galinha:");
+
+		objetoGalinha.idade = Integer.parseInt(entradaDeDados.next());
+
+		System.out.println("Digite a cor da pena da galinha:");
+
+		objetoGalinha.corPena = entradaDeDados.next();
+
+		System.out.println("Nome da galinha: " + objetoGalinha.nome);
+
+		System.out.println("Idade da galinha: " + objetoGalinha.idade);
+
+		System.out.println("Cor da pena da galinha: " + objetoGalinha.corPena);
 		
 	}	
 }
