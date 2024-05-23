@@ -1,9 +1,0 @@
-package cadastroAtleta;
-
-public class Atleta {
-
-	public string nome; // Cadeia de qualquer caracter
-	public int idade; // Apenas para numero inteiro	
-	public double salario; // numeros com casas decimais - ex: 10.5
-	
-}

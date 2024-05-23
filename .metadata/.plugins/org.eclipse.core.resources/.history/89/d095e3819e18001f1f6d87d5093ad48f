@@ -1,8 +1,0 @@
-package cadastroCachorro;
-
-public class Cachorro {
-	public String nome; // Cadeia de qualquer caracter
-	public int idade; // Apenas para numero inteiro	
-	public double peso; // numeros com casas decimais
-	public Object preco;
-}
