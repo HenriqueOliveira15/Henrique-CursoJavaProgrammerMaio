@@ -1,0 +1,14 @@
+package entidade;
+
+public class Cachorro {
+	
+import cadastroAtleta.String;
+
+	public class Cachorro {
+		public String nome; // Cadeia de qualquer caracter
+		public int idade; // Apenas para numero inteiro	
+		public double peso; // numeros com casas decimais - ex: 10.5
+
+	}
+
+}

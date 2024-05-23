@@ -1,0 +1,35 @@
+package cadastroCachorro;
+
+import java.util.Scanner;
+
+import entidade.Atleta;
+
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		Cachorro objetoCachorro = new Cachorro ();
+		
+		Scanner entradaDados = new Scanner (System.in);
+		
+		System.out.println("Digite o Nome do cachorro: ");
+		objetoCachorro.nome  = entradaDados.next();
+		
+		System.out.println("Digite a Idade do cachorro: ");
+		objetoCachorro.idade = entradaDados.next();
+		
+		System.out.println("Digite o peso do cachorro: ");
+		objetoCachorro.peso = entradaDados.next();
+
+	}
+	
+	public static void imprimirResultadosNoConsole(Atleta atleta) {
+		System.out.println("Nome do Cachorro: " + Cachorro.nome);
+		System.out.println("Idade do Atleta: " + atleta.idade);
+		System.out.println("Salario do Atleta: " + atleta.salario);
+		
+	}
+	
+
+}

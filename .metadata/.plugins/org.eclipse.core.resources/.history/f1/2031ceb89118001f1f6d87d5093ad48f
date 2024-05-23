@@ -1,0 +1,10 @@
+package entidade;
+
+import cadastroAtleta.string;
+
+public class Atleta {
+	public String nome; // Cadeia de qualquer caracter
+	public int idade; // Apenas para numero inteiro	
+	public double salario; // numeros com casas decimais - ex: 10.5
+
+}
