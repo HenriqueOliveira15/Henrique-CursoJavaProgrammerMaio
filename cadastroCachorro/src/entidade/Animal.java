@@ -1,9 +1,28 @@
 package entidade;
 
-public class Animal {
+public abstract class Animal {
 	
-	public String nome;
-	public int idade; 
-	public int qtdPartida;
-	public double peso;
+	private String nome;
+	private String CorPelo;
+
+	public Animal(String nome) {
+		super();
+		this.nome = nome;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setCorpelo(String CorPelo) {
+		this.CorPelo = CorPelo;
+	}
+	
+	public String getCorPelo() {
+		return CorPelo;
+	}
+	
+	
 }

@@ -1,6 +1,7 @@
-package cadastroCachorro;
+package projetoAnimal2;
 
 import java.util.Scanner;
+import entidade.cadastroAnimal;
 import entidade.Cachorro;
 import entidade.Cobra;
 
@@ -9,15 +10,11 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
+		
+		
+	}
 
-		
-		Cobra cobra = new Cobra ("Serpente");
-		
-		
-		
-	
-	
-		
+}
 		
 		
 		
@@ -40,7 +37,7 @@ public class Principal {
 		
 		//imprimirResultadosNoConsole(objetoCachorro);
 
-	}
+
 	
 	//public static void imprimirResultadosNoConsole(Cachorro cachorro) {
 		//System.out.println("Nome do Cachorro: " + cachorro.nome);
@@ -59,4 +56,4 @@ public class Principal {
 	//}
 	
 
-}
+

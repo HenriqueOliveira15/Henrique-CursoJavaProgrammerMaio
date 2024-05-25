@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="entidade.Peixe"/>
+    <fullyQualifiedTypeName name="interacaoUsuario.Menu"/>
+    <fullyQualifiedTypeName name="entidade.Carro"/>
+    <fullyQualifiedTypeName name="entidade.Moto"/>
+    <fullyQualifiedTypeName name="entidade.cadastroAnimal"/>
+</qualifiedTypeNameHistroy>
