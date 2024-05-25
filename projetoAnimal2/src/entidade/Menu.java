@@ -11,24 +11,18 @@ public class Menu {
 		
 		cadastroAnimal cadastro = new cadastroAnimal();
 		
-		cadastro.cadastrarCachorro();
-		
-		cadastro.cadastrarCobra();
 		
 		System.out.println("Digite 1 para CACHORRO e Qualquer Tecla para COBRA");
 		int opcao = Integer.parseInt(entradaDados.next());
 		
 		
 		if(opcao == 1) { 
-			cadastroAnimal.cadastrarCachorro();
+			cadastro.cadastrarCachorro();
 		}
 		if(opcao == 2) {
-			cadastroAnimal.cadastrarCobra();
+			cadastro.cadastrarCobra();
 		}
 		
-		if(opcao != 1 || opcao != 2) {
-			System.out.println("Escolha entre um ou dois");
-		}
 		
 	}
 
