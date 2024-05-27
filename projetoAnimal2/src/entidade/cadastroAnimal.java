@@ -18,12 +18,11 @@ public class cadastroAnimal {
 		
 		cachorroEntidade.setCorPelo(JOptionPane.showInputDialog("Digite a Cor do Pelo: "));
 		
-		
-		System.out.println("Nome: " + cachorroEntidade.getNome());
-		System.out.println("Idade: " + cachorroEntidade.getIdade());
-		System.out.println("Peso: " + cachorroEntidade.getPeso());
-		System.out.println("Preço: " + cachorroEntidade.getPreco());
-		System.out.println("Cor do Pelo: " + cachorroEntidade.getCorPelo());
+		JOptionPane.showMessageDialog(null, "NOME: " + cachorroEntidade.getNome() + "\n" +
+				"IDADE: " + cachorroEntidade.getIdade() + "\n" +
+				"PESO: " + cachorroEntidade.getPeso() + "\n" +
+				"PREÇO: " + cachorroEntidade.getPreco() + "\n" +
+				"COR DO PELO: " + cachorroEntidade.getCorPelo());
 		
 	}
 
@@ -43,11 +42,11 @@ public class cadastroAnimal {
 		cobraEntidade.setTipoVeneno(JOptionPane.showInputDialog("Digite o Tipo de Veneno: "));
 		
 		
-		System.out.println("Nome: " + cobraEntidade.getNome());
-		System.out.println("Idade: " + cobraEntidade.getIdade());
-		System.out.println("Peso: " + cobraEntidade.getPeso());
-		System.out.println("Preço: " + cobraEntidade.getPreco());
-		System.out.println("Tipo do Veneno: " + cobraEntidade.getTipoVeneno());
+		JOptionPane.showMessageDialog(null, "NOME: " + cobraEntidade.getNome() + "\n" +
+				"IDADE: " + cobraEntidade.getIdade() + "\n" +
+				"PESO: " + cobraEntidade.getPeso() + "\n" +
+				"PREÇO: " + cobraEntidade.getPreco() + "\n" +
+				"TIPO DO VENENO: " + cobraEntidade.getTipoVeneno());
 		
 	}
 

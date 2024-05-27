@@ -2,8 +2,6 @@ package entidade;
 
 import javax.swing.JOptionPane;
 
-import entidade.cadastroAnimal;
-
 public class Menu {
 	
 	
