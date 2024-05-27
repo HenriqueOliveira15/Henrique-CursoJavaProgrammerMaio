@@ -1,28 +1,39 @@
 package entidade;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 import entidade.cadastroAnimal;
 
 public class Menu {
 	
-	Scanner entradaDados = new Scanner (System.in);
 	
 	public void menuInicial() {
 		
 		cadastroAnimal cadastro = new cadastroAnimal();
 		
 		
-		System.out.println("Digite 1 para CACHORRO e Qualquer Tecla para COBRA");
-		int opcao = Integer.parseInt(entradaDados.next());
+		int opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para CACHORRO, 2 para COBRA e 3 para Encerrar o programa: "));
 		
 		
-		if(opcao == 1) { 
+		
+		switch (opcao) {
+		case 1: { 
 			cadastro.cadastrarCachorro();
+			break;
 		}
-		if(opcao == 2) {
+		case 2: {
 			cadastro.cadastrarCobra();
+			break;
 		}
+		case 3: {
+			System.exit(0);
+			break;
+		}
+		default:
+			JOptionPane.showMessageDialog(null, "Insira 1 ou 2");
 		
+		}
+
 		
 	}
 

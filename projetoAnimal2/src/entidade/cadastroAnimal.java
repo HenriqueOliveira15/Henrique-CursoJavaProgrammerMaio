@@ -1,31 +1,23 @@
 package entidade;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class cadastroAnimal {
-	Scanner entradaDados = new Scanner (System.in);
 	
 	public void cadastrarCachorro() {
 		
 		Cachorro cachorroEntidade = new Cachorro();
 		
-		System.out.println("Digite o nome do Cachorro: ");
-		cachorroEntidade.setNome(entradaDados.next());
+		cachorroEntidade.setNome(JOptionPane.showInputDialog("Digite o Nome: "));
 		
-		System.out.println("Digite a idade do Cachorro: ");
-		cachorroEntidade.setIdade(entradaDados.next());
+		cachorroEntidade.setIdade(JOptionPane.showInputDialog("Digite a Idade: "));
 		
-		System.out.println("Digite o peso do Cachorro: ");
-		cachorroEntidade.setPeso(entradaDados.next());
+		cachorroEntidade.setPeso(JOptionPane.showInputDialog("Digite o Peso: "));
 		
-		System.out.println("Digite o preço do Cachorro: ");
-		cachorroEntidade.setPreco(entradaDados.next());
+		cachorroEntidade.setPreco(JOptionPane.showInputDialog("Digite o Preço: "));
 		
-		System.out.println("Digite a cor do Pelo do cachorro: ");
-		cachorroEntidade.setCorPelo(entradaDados.next());
+		cachorroEntidade.setCorPelo(JOptionPane.showInputDialog("Digite a Cor do Pelo: "));
 		
-		
-		System.out.println("##### DADOS DO CACHORRO #####");
 		
 		System.out.println("Nome: " + cachorroEntidade.getNome());
 		System.out.println("Idade: " + cachorroEntidade.getIdade());
@@ -40,23 +32,16 @@ public class cadastroAnimal {
 		
 		Cobra cobraEntidade = new Cobra();
 		
-		System.out.println("Digite o nome da Cobra: ");
-		cobraEntidade.setNome(entradaDados.next());
+		cobraEntidade.setNome(JOptionPane.showInputDialog("Digite o Nome: "));
 		
-		System.out.println("Digite a idade da Cobra: ");
-		cobraEntidade.setIdade(entradaDados.next());
+		cobraEntidade.setIdade(JOptionPane.showInputDialog("Digite a Idade: "));
 		
-		System.out.println("Digite o peso da Cobra: ");
-		cobraEntidade.setPeso(entradaDados.next());
+		cobraEntidade.setPeso(JOptionPane.showInputDialog("Digite o Peso: "));
 		
-		System.out.println("Digite o preço da Cobra: ");
-		cobraEntidade.setPreco(entradaDados.next());
+		cobraEntidade.setPreco(JOptionPane.showInputDialog("Digite o Preço: "));
 		
-		System.out.println("Digite o tipo de veneno da Cobra: ");
-		cobraEntidade.setTipoVeneno(entradaDados.next());
+		cobraEntidade.setTipoVeneno(JOptionPane.showInputDialog("Digite o Tipo de Veneno: "));
 		
-		
-		System.out.println("##### DADOS DA COBRA #####");
 		
 		System.out.println("Nome: " + cobraEntidade.getNome());
 		System.out.println("Idade: " + cobraEntidade.getIdade());
