@@ -10,9 +10,13 @@ public class Menu {
 		cadastroAnimal cadastro = new cadastroAnimal();
 		
 		
-		int opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para CACHORRO, 2 para COBRA e 3 para Encerrar o programa: "));
+		int opcao;
 		
+		boolean menuResultado = true;
 		
+		while (menuResultado) {
+		
+		opcao = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para CACHORRO, 2 para COBRA e 3 para Encerrar o programa: "));
 		
 		switch (opcao) {
 		case 1: { 
@@ -28,11 +32,16 @@ public class Menu {
 			break;
 		}
 		default:
-			JOptionPane.showMessageDialog(null, "Insira 1 ou 2");
+			JOptionPane.showMessageDialog(null, "Insira 1, 2 OU 3 ");
 		
+		}
+		
+		if(opcao == 1 || opcao == 2) {
+			menuResultado = false;
 		}
 
 		
+	}
 	}
 
 }
