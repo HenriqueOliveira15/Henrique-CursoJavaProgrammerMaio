@@ -4,8 +4,8 @@ public abstract class Animal {
 	
 	private String Nome;
 	private String Idade;
-	private String preco;
-	private String Peso;
+	private Double preco;
+	private Double Peso;
 	
 	public String getNome() {
 		return Nome;
@@ -19,17 +19,17 @@ public abstract class Animal {
 	public void setIdade(String idade) {
 		Idade = idade;
 	}
-	public String getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreco(String preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	public String getPeso() {
+	public Double getPeso() {
 		return Peso;
 	}
-	public void setPeso(String peso) {
-		Peso = peso;
+	public void setPeso(Double string) {
+		Peso = string;
 	}
 	
 	

@@ -19,9 +19,7 @@ public class Menu {
 		
 		int opcao;
 		
-		boolean menuResultado = true;
-		
-		while (menuResultado) {
+		while (true) {
 		
 		opcao = Integer.parseInt(JOptionPane.showInputDialog("DIGITE 1 PARA CADASTRAR CACHORRO" + "\n"
 				+ "DIGITE 2 PARA CADASTRAR COBRA" + "\n"

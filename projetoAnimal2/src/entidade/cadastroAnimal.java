@@ -14,12 +14,29 @@ public class cadastroAnimal {
 		
 		cachorroEntidade.setIdade(JOptionPane.showInputDialog("Digite a Idade: "));
 		
-		cachorroEntidade.setPeso(JOptionPane.showInputDialog("Digite o Peso: "));
-		
-		cachorroEntidade.setPreco(JOptionPane.showInputDialog("Digite o Preço: "));
-		
 		cachorroEntidade.setCorPelo(JOptionPane.showInputDialog("Digite a Cor do Pelo: "));
 		
+		
+		boolean precoValido = false;
+        while (!precoValido) {
+            try {
+                
+            	cachorroEntidade.setPeso(Double.parseDouble(JOptionPane.showInputDialog("Digite o Peso: ")));
+            	
+            	cachorroEntidade.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Digite o Preço: ")));
+                precoValido = true; 
+            } catch (NumberFormatException mensagemExeption) {
+                System.out.println("Mensagem: O peso deve ser um número. " + mensagemExeption.getMessage());
+                JOptionPane.showMessageDialog(null, "O peso deve ser um número");
+            
+            } catch (Exception mensagemExeption) {
+                System.out.println("Mensagem: O preço deve ser um número. " + mensagemExeption.getMessage());
+                JOptionPane.showMessageDialog(null, "O preço deve ser um número");
+            	
+            	
+            }
+        }
+        
 		return cachorroEntidade;
 		
 		
@@ -53,11 +70,28 @@ public class cadastroAnimal {
 		
 		cobraEntidade.setIdade(JOptionPane.showInputDialog("Digite a Idade: "));
 		
-		cobraEntidade.setPeso(JOptionPane.showInputDialog("Digite o Peso: "));
-		
-		cobraEntidade.setPreco(JOptionPane.showInputDialog("Digite o Preço: "));
-		
 		cobraEntidade.setTipoVeneno(JOptionPane.showInputDialog("Digite o Tipo de Veneno: "));
+		
+		boolean precoValido = false;
+        while (!precoValido) {
+            try {
+                
+            	cobraEntidade.setPeso(Double.parseDouble(JOptionPane.showInputDialog("Digite o Peso: ")));
+            	
+            	cobraEntidade.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Digite o Preço: ")));
+                precoValido = true; 
+            } catch (NumberFormatException mensagemExeption) {
+                System.out.println("Mensagem: O preço deve ser um número. " + mensagemExeption.getMessage());
+                JOptionPane.showMessageDialog(null, "O peso deve ser um número");
+            
+            } catch (Exception mensagemExeption2) {
+                System.out.println("Mensagem: O preço deve ser um número. " + mensagemExeption2.getMessage());
+                JOptionPane.showMessageDialog(null, "O preço deve ser um número");
+            	
+            	
+            }
+        }
+		
 		
 		return cobraEntidade;
 		
