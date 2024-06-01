@@ -17,25 +17,33 @@ public class cadastroAnimal {
 		cachorroEntidade.setCorPelo(JOptionPane.showInputDialog("Digite a Cor do Pelo: "));
 		
 		
-		boolean precoValido = false;
-        while (!precoValido) {
+		boolean pesoValido = false;
+        while (!pesoValido) {
             try {
                 
             	cachorroEntidade.setPeso(Double.parseDouble(JOptionPane.showInputDialog("Digite o Peso: ")));
-            	
-            	cachorroEntidade.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Digite o Preço: ")));
-                precoValido = true; 
+                pesoValido = true; 
             } catch (NumberFormatException mensagemExeption) {
                 System.out.println("Mensagem: O peso deve ser um número. " + mensagemExeption.getMessage());
                 JOptionPane.showMessageDialog(null, "O peso deve ser um número");
             
-            } catch (Exception mensagemExeption) {
-                System.out.println("Mensagem: O preço deve ser um número. " + mensagemExeption.getMessage());
-                JOptionPane.showMessageDialog(null, "O preço deve ser um número");
-            	
-            	
+            }  
+            
+            boolean precoValido = false;
+            while (!precoValido) {
+            try {
+                cachorroEntidade.setPreco(Double.parseDouble(JOptionPane.showInputDialog("Digite o Preço: ")));
+                precoValido = true; 
+                
+            } catch (NumberFormatException mensagemExeption) {
+                    System.out.println("Mensagem: O peso deve ser um número. " + mensagemExeption.getMessage());
+                    JOptionPane.showMessageDialog(null, "O preço deve ser um número");
+                
+                }
             }
         }
+       
+        
         
 		return cachorroEntidade;
 		
