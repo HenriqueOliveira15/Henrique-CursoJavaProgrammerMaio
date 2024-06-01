@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controlador.TelaMenuInicialControlador;
+
 
 public class TelaMenuInicial {
 	
@@ -14,19 +16,18 @@ public class TelaMenuInicial {
 		
 		JFrame frameTelaInicial = new JFrame();
 		
-		frameTelaInicial.setSize(200 , 200); 
+		frameTelaInicial.setSize(150 , 200); 
 		JPanel painelTelaInicial = new JPanel();
 		
-		JLabel labelOpcaoAnimais = new JLabel(" 1 - MENU ANIMAIS");
-		painelTelaInicial.add(labelOpcaoAnimais);
-		
-		JLabel labelOpcaoCachorro = new JLabel(" 2 - MENU CACHORRO");
+		JLabel labelOpcaoCachorro = new JLabel(" 1 - MENU CACHORRO");
 		painelTelaInicial.add(labelOpcaoCachorro);
 		
-		JLabel labelOpcaoCobra = new JLabel(" 3 - MENU COBRA");
+		JLabel labelOpcaoCobra = new JLabel(" 2 - MENU COBRA");
 		painelTelaInicial.add(labelOpcaoCobra);
 		
-		
+		JLabel labelOpcaoSair = new JLabel(" 3 - SAIR ");
+		painelTelaInicial.add(labelOpcaoSair);
+
 		JTextField opcaoTexto = new JTextField(10);
 		
 		
@@ -40,6 +41,10 @@ public class TelaMenuInicial {
 
 		frameTelaInicial.add(painelTelaInicial);
 		frameTelaInicial.setVisible(true);
+		
+		TelaMenuInicialControlador telaMenuInicialControlador = new TelaMenuInicialControlador(opcaoTexto);
+		botaoEnviar.addActionListener(telaMenuInicialControlador);
+		
 	
 		
 	}
