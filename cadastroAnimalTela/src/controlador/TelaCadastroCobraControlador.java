@@ -6,10 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
 import Arquivo.ManipuladorArquivo;
-import entidades.Cachorro;
+import entidades.Cobra;
 
-public class TelaCadastroCachorroControlador implements ActionListener {
-	
+
+public class TelaCadastroCobraControlador implements ActionListener{
 	
 	JTextField caixaTextoPrimeiroCampoRecebido; 
 	JTextField caixaTextoSegundoCampoRecebido; 
@@ -17,39 +17,36 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 	
 	ManipuladorArquivo manipuladorArquivo = new ManipuladorArquivo();
 	
-	
-	
-	public TelaCadastroCachorroControlador(JTextField caixaTextoPrimeiroCampoRecebido,
+	public TelaCadastroCobraControlador(JTextField caixaTextoPrimeiroCampoRecebido,
 			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido) {
+		
 		this.caixaTextoPrimeiroCampoRecebido = caixaTextoPrimeiroCampoRecebido;
 		this.caixaTextoSegundoCampoRecebido = caixaTextoSegundoCampoRecebido;
 		this.caixaTextoTerceiroCampoRecebido = caixaTextoTerceiroCampoRecebido;
 	}
-	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		registrarArquivo(); // chamando o metodo de registrar o arquivo
 		
-		System.out.println("O NOME do cachorro: " + caixaTextoPrimeiroCampoRecebido.getText());
+		System.out.println("O NOME da Cobra: " + caixaTextoPrimeiroCampoRecebido.getText());
 		
-		System.out.println("O CAF do cachorro: " + caixaTextoSegundoCampoRecebido.getText());
+		System.out.println("O CAF da Cobra: " + caixaTextoSegundoCampoRecebido.getText());
 		
-		System.out.println("A COR DO PELO do cachorro: " + caixaTextoTerceiroCampoRecebido.getText());
-		
+		System.out.println("O TIPO DE VENENO da Cobra: " + caixaTextoTerceiroCampoRecebido.getText());	
 		
 	}
 	
 	public void registrarArquivo() {
 		
-		Cachorro cachorro = new Cachorro();
+		Cobra cobra = new Cobra();
 		
-		cachorro.setNome(caixaTextoPrimeiroCampoRecebido.getText());
-		cachorro.setCaf(caixaTextoSegundoCampoRecebido.getText());
-		cachorro.setCorPelo(caixaTextoTerceiroCampoRecebido.getText());
+		cobra.setNome(caixaTextoPrimeiroCampoRecebido.getText());
+		cobra.setCaf(caixaTextoSegundoCampoRecebido.getText());
+		cobra.setTipoVeneno(caixaTextoTerceiroCampoRecebido.getText());
 		
-		manipuladorArquivo.registrarCachorro(cachorro);
+		manipuladorArquivo.registrarCobra(cobra);
 		
 		
 	}
