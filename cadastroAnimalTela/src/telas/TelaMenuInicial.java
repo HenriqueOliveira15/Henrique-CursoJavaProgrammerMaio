@@ -16,7 +16,7 @@ public class TelaMenuInicial {
 		
 		JFrame frameTelaInicial = new JFrame();
 		
-		frameTelaInicial.setSize(150 , 200); 
+		frameTelaInicial.setSize(170 , 200); 
 		JPanel painelTelaInicial = new JPanel();
 		
 		JLabel labelOpcaoCachorro = new JLabel(" 1 - MENU CACHORRO");

@@ -1,31 +1,32 @@
 package controlador;
 
 import java.awt.event.ActionEvent;
-
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import telas.TelaMenuCachorro;
+import telas.TelaCadastroCachorro;
 
-public class TelaMenuInicialControlador implements ActionListener {
-	
-	JTextField opcao;
-	
+public class TelaMenuCachorroControlador implements ActionListener{
 
-	public TelaMenuInicialControlador(JTextField opcao) {
-		this.opcao = opcao;
-		
+	
+	JTextField opcaoRecebida;
+
+	public TelaMenuCachorroControlador(JTextField opcaoRecebida) {
+		this.opcaoRecebida = opcaoRecebida;
 	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(opcao.getText().equals("1") || opcao.getText().equals("2")) {
-			switch (opcao.getText()) {
+	
+		if(opcaoRecebida.getText().equals("1") || opcaoRecebida.getText().equals("2")) {
+			switch (opcaoRecebida.getText()) {
 					case "1": 	
-						TelaMenuCachorro.chamarTelaMenuCachorro();
+						TelaCadastroCachorro.chamartelaCadastroCachorro();
 						System.out.println("Direcione para a tela do cachorro");
 						break;
 					
@@ -42,10 +43,8 @@ public class TelaMenuInicialControlador implements ActionListener {
 				
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, "A opção " + opcao.getText() + " não é válida");
-		
-		} 
-		}
-	
-
+					JOptionPane.showMessageDialog(null, "A opção " + opcaoRecebida.getText() + " não é válida");
 	}
+	}
+
+}

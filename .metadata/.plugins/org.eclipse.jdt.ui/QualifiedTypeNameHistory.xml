@@ -12,4 +12,5 @@
     <fullyQualifiedTypeName name="entidades.Gerente"/>
     <fullyQualifiedTypeName name="javax.swing.JTextField"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="controlador.TelaMenuInicialControlador"/>
 </qualifiedTypeNameHistroy>
