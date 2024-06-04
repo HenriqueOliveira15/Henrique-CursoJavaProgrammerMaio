@@ -30,7 +30,7 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		registrarArquivo();
+		registrarArquivo(); // chamando o metodo de registrar o arquivo
 		
 		System.out.println("O NOME do cachorro: " + caixaTextoPrimeiroCampoRecebido.getText());
 		
