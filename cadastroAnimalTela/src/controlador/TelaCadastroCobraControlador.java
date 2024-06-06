@@ -1,12 +1,14 @@
 package controlador;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
 import Arquivo.ManipuladorArquivo;
 import entidades.Cobra;
+import persistencia.DaoCobra;
 
 
 public class TelaCadastroCobraControlador implements ActionListener{
@@ -16,6 +18,7 @@ public class TelaCadastroCobraControlador implements ActionListener{
 	JTextField caixaTextoTerceiroCampoRecebido; 
 	
 	ManipuladorArquivo manipuladorArquivo = new ManipuladorArquivo();
+	DaoCobra daoCobra = new DaoCobra();
 	
 	public TelaCadastroCobraControlador(JTextField caixaTextoPrimeiroCampoRecebido,
 			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido) {
@@ -47,6 +50,7 @@ public class TelaCadastroCobraControlador implements ActionListener{
 		cobra.setTipoVeneno(caixaTextoTerceiroCampoRecebido.getText());
 		
 		manipuladorArquivo.registrarCobra(cobra);
+		daoCobra.salvarCobra(cobra);
 		
 		
 	}

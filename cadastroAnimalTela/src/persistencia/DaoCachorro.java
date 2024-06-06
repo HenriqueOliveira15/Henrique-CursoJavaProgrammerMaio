@@ -1,44 +1,45 @@
-package conectaBancoTeste;
+package persistencia;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class DaoPessoa {
+import entidades.Cachorro;
+
+public class DaoCachorro {
 	
-	public boolean salvarPessoaNoBanco(Pessoa pessoa) {
+	
+	public boolean salvarCachorro(Cachorro cachorro) {
 		boolean salvamento = false;
 		
-		ConectarBancoTeste conexaoConectarBancoTeste = new ConectarBancoTeste();
-		
+		FabricaConexao conexaoConectarBancoTeste = new FabricaConexao();
 		Connection connectionBaseTeste = null;
-		
 		PreparedStatement preparaComandoSQL = null;
 		
 		
-		String comandoSqlInsert = "insert into pessoa (cpf, nome, email) values (?, ?, ?)";
+		String comandoSqlInsert = "insert into tb_cachorro (nome, caf, corpelo) values (?, ?, ?)";
 		
 		
 		
 		
 		try {
-			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoTeste();
+			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroAnimal();
 			
 			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlInsert);	
 			
-			preparaComandoSQL.setString(1, pessoa.getCpf());
-			preparaComandoSQL.setString(2, pessoa.getNome());
-			preparaComandoSQL.setString(3, pessoa.getEmail()); 
+			preparaComandoSQL.setString(1, Cachorro.getNome());
+			preparaComandoSQL.setString(2, Cachorro.getCaf());
+			preparaComandoSQL.setString(3, Cachorro.getCorPelo()); 
 			
 			
 			preparaComandoSQL.execute();
 		
-			System.out.println("Pessoa registrada com sucesso");
+			System.out.println("Cachorro registrado com sucesso");
 			
 			salvamento = true;
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			System.out.println("Nao foi possivel registrar essa pessoa");
+			System.out.println("Nao foi possivel registrar esse cachorro");
 			
 		}finally { // Esse é obrigatório
 			
@@ -57,13 +58,7 @@ public class DaoPessoa {
 			
 			
 		}
-		
-		
-		
-		
-		
-		
-		
+	
 		return salvamento;
 	}
 

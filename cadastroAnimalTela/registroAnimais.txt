@@ -1,3 +1,3 @@
-O NOME  do cachorro é: Thor executavel
-O CAF do cachorro é: 011
+O NOME  do cachorro é: Executavel
+O CAF do cachorro é: 02121
 A COR DO PELO do cachorro é: Caramelo

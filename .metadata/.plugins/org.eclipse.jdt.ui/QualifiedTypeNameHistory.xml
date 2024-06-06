@@ -10,7 +10,6 @@
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="controlador.ControladorTelaPrincipal"/>
     <fullyQualifiedTypeName name="entidades.Gerente"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="controlador.TelaMenuInicialControlador"/>
     <fullyQualifiedTypeName name="telas.TelaMenuCachorro"/>
     <fullyQualifiedTypeName name="javax.swing.JTextField"/>
@@ -20,4 +19,5 @@
     <fullyQualifiedTypeName name="com.mysql.cj.jdbc.Driver"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="conectaBancoTeste.ConectarBancoTeste"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>
