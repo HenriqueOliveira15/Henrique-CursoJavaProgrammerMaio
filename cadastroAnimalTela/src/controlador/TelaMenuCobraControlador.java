@@ -1,8 +1,10 @@
 package controlador;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -11,9 +13,11 @@ import telas.TelaCadastroCobra;
 public class TelaMenuCobraControlador implements ActionListener {
 	
 	JTextField opcaoRecebida;
+	JFrame frameTelaMenuCobra;
 
-	public TelaMenuCobraControlador(JTextField opcaoRecebida) {
+	public TelaMenuCobraControlador(JTextField opcaoRecebida, JFrame frameTelaMenuCobraFrame) {
 		this.opcaoRecebida = opcaoRecebida;
+		this.frameTelaMenuCobra = frameTelaMenuCobraFrame;
 	}
 
 
@@ -25,6 +29,7 @@ public class TelaMenuCobraControlador implements ActionListener {
 					case "1": 	
 						TelaCadastroCobra.chamartelaCadastroCobra();
 						System.out.println("Direcione para a tela do cachorro");
+						frameTelaMenuCobra.setVisible(false);
 						break;
 					
 					

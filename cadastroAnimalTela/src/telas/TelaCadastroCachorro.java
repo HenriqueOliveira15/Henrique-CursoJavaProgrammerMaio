@@ -1,5 +1,7 @@
 package telas;
 
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +21,7 @@ public class TelaCadastroCachorro {
 	
 		
 		JFrame frameTelaCadastroCachorro = new JFrame(); // Criando o frame da tela
+		GridLayout grid = new GridLayout(0, 1);
 		
 		frameTelaCadastroCachorro.setSize(200, 200); // Setando o tamanho da tela
 		JPanel painelTelaCadastroCachorro = new JPanel(); // Criando o painel da tela de Cadastro
@@ -40,6 +43,7 @@ public class TelaCadastroCachorro {
 		
 		JTextField caixaTextoTerceiroCampo = new JTextField(10);
 		painelTelaCadastroCachorro.add(caixaTextoTerceiroCampo);
+		painelTelaCadastroCachorro.setLayout(grid);
 		
 		
 		JButton botaoCadastrar = new JButton("Enviar"); // Criando o botão enviar para que os dados inseridos pelo usuario sejam cadastrados 
@@ -49,7 +53,7 @@ public class TelaCadastroCachorro {
 		frameTelaCadastroCachorro.add(painelTelaCadastroCachorro); // criando o frame do painel da tela de cadastro do cachorro
 		frameTelaCadastroCachorro.setVisible(true); // deixando o frame visivel
 		
-		TelaCadastroCachorroControlador cadastroCachorroControlador = new TelaCadastroCachorroControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo);
+		TelaCadastroCachorroControlador cadastroCachorroControlador = new TelaCadastroCachorroControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCachorro);
 		botaoCadastrar.addActionListener(cadastroCachorroControlador);
 		
 	}

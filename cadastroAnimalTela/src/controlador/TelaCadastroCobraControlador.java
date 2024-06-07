@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Arquivo.ManipuladorArquivo;
@@ -16,16 +18,18 @@ public class TelaCadastroCobraControlador implements ActionListener{
 	JTextField caixaTextoPrimeiroCampoRecebido; 
 	JTextField caixaTextoSegundoCampoRecebido; 
 	JTextField caixaTextoTerceiroCampoRecebido; 
+	JFrame frameTelaCadastroCobra;
 	
 	ManipuladorArquivo manipuladorArquivo = new ManipuladorArquivo();
 	DaoCobra daoCobra = new DaoCobra();
 	
 	public TelaCadastroCobraControlador(JTextField caixaTextoPrimeiroCampoRecebido,
-			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido) {
+			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido, JFrame frameTelaCadastroCobra) {
 		
 		this.caixaTextoPrimeiroCampoRecebido = caixaTextoPrimeiroCampoRecebido;
 		this.caixaTextoSegundoCampoRecebido = caixaTextoSegundoCampoRecebido;
 		this.caixaTextoTerceiroCampoRecebido = caixaTextoTerceiroCampoRecebido;
+		this.frameTelaCadastroCobra = frameTelaCadastroCobra;
 	}
 
 	@Override
@@ -39,6 +43,8 @@ public class TelaCadastroCobraControlador implements ActionListener{
 		
 		System.out.println("O TIPO DE VENENO da Cobra: " + caixaTextoTerceiroCampoRecebido.getText());	
 		
+		frameTelaCadastroCobra.setVisible(false);
+		
 	}
 	
 	public void registrarArquivo() {
@@ -50,9 +56,14 @@ public class TelaCadastroCobraControlador implements ActionListener{
 		cobra.setTipoVeneno(caixaTextoTerceiroCampoRecebido.getText());
 		
 		manipuladorArquivo.registrarCobra(cobra);
-		daoCobra.salvarCobra(cobra);
+		
+		if(daoCobra.salvarCobra(cobra)){
+			JOptionPane.showMessageDialog(null, "Dados salvos com sucesso");
+		}else {
+			JOptionPane.showMessageDialog(null, "Nao foi possivel salvar os dados");
 		
 		
 	}
 
+}
 }

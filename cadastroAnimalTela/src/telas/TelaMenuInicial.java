@@ -1,5 +1,8 @@
 package telas;
 
+import java.awt.GridLayout;
+
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,6 +19,8 @@ public class TelaMenuInicial {
 		
 		JFrame frameTelaInicial = new JFrame();
 		
+		GridLayout grid = new GridLayout(0, 1);
+	
 		frameTelaInicial.setSize(170 , 200); 
 		JPanel painelTelaInicial = new JPanel();
 		
@@ -24,6 +29,7 @@ public class TelaMenuInicial {
 		
 		JLabel labelOpcaoCobra = new JLabel(" 2 - MENU COBRA");
 		painelTelaInicial.add(labelOpcaoCobra);
+		painelTelaInicial.setLayout(grid);
 		
 		JLabel labelOpcaoSair = new JLabel(" 3 - SAIR ");
 		painelTelaInicial.add(labelOpcaoSair);
@@ -42,7 +48,7 @@ public class TelaMenuInicial {
 		frameTelaInicial.add(painelTelaInicial);
 		frameTelaInicial.setVisible(true);
 		
-		TelaMenuInicialControlador telaMenuInicialControlador = new TelaMenuInicialControlador(opcaoTexto);
+		TelaMenuInicialControlador telaMenuInicialControlador = new TelaMenuInicialControlador(opcaoTexto, frameTelaInicial);
 		botaoEnviar.addActionListener(telaMenuInicialControlador);
 		
 	

@@ -7,11 +7,9 @@
     <fullyQualifiedTypeName name="entidade.cadastroAnimal"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="interfaceGrafica.TelaPrincipal"/>
-    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="controlador.ControladorTelaPrincipal"/>
     <fullyQualifiedTypeName name="entidades.Gerente"/>
     <fullyQualifiedTypeName name="controlador.TelaMenuInicialControlador"/>
-    <fullyQualifiedTypeName name="telas.TelaMenuCachorro"/>
     <fullyQualifiedTypeName name="javax.swing.JTextField"/>
     <fullyQualifiedTypeName name="javax.swing.JButton"/>
     <fullyQualifiedTypeName name="telas.telaCadastroCachorro"/>
@@ -20,4 +18,8 @@
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="conectaBancoTeste.ConectarBancoTeste"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="persistencia.DaoCobra"/>
+    <fullyQualifiedTypeName name="java.awt.GridLayout"/>
+    <fullyQualifiedTypeName name="telas.TelaMenuCachorro"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 </qualifiedTypeNameHistroy>

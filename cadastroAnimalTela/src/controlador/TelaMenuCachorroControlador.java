@@ -1,20 +1,24 @@
 package controlador;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import telas.TelaCadastroCachorro;
-import telas.TelaCadastroCobra;
+
 
 public class TelaMenuCachorroControlador implements ActionListener{
 
 	
 	JTextField opcaoRecebida;
+	JFrame frameTelaMenuCachorro;
 
-	public TelaMenuCachorroControlador(JTextField opcaoRecebida) {
+	public TelaMenuCachorroControlador(JTextField opcaoRecebida, JFrame frameTelaMenuCachorro ) {
 		this.opcaoRecebida = opcaoRecebida;
+		this.frameTelaMenuCachorro = frameTelaMenuCachorro;
 	}
 
 
@@ -27,6 +31,7 @@ public class TelaMenuCachorroControlador implements ActionListener{
 					case "1": 	
 						TelaCadastroCachorro.chamartelaCadastroCachorro();
 						System.out.println("Direcione para a tela do cachorro");
+						frameTelaMenuCachorro.setVisible(false);
 						break;
 					
 					

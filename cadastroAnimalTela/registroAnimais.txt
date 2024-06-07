@@ -1,3 +1,3 @@
-O NOME  do cachorro é: thorexec
-O CAF do cachorro é: 0111
-A COR DO PELO do cachorro é: caramelo
+O NOME  do cachorro Ã©: Zeca
+O CAF do cachorro Ã©: 0434
+A COR DO PELO do cachorro Ã©: Marrom

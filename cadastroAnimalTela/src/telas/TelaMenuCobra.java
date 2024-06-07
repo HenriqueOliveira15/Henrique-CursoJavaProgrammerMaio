@@ -1,5 +1,7 @@
 package telas;
 
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,6 +16,7 @@ public class TelaMenuCobra {
 public static void chamarTelaMenuCobra() {
 		
 		JFrame frameTelaMenuCobra = new JFrame();
+		GridLayout grid = new GridLayout(0, 1);
 		
 		frameTelaMenuCobra.setSize(180 , 200); 
 		JPanel TelaMenuCobra = new JPanel();
@@ -23,6 +26,7 @@ public static void chamarTelaMenuCobra() {
 		
 		JLabel labelListarCobra = new JLabel(" 2 - LISTAR COBRA");
 		TelaMenuCobra.add(labelListarCobra);
+		TelaMenuCobra.setLayout(grid);
 		
 		JLabel labelOpcaoSair = new JLabel(" 3 - SAIR ");
 		TelaMenuCobra.add(labelOpcaoSair);
@@ -41,7 +45,7 @@ public static void chamarTelaMenuCobra() {
 		frameTelaMenuCobra.add(TelaMenuCobra);
 		frameTelaMenuCobra.setVisible(true);
 		
-		TelaMenuCobraControlador telaMenuCobraControlador = new TelaMenuCobraControlador(opcaoTexto);
+		TelaMenuCobraControlador telaMenuCobraControlador = new TelaMenuCobraControlador(opcaoTexto, frameTelaMenuCobra);
 		botaoEnviar.addActionListener(telaMenuCobraControlador);
 		
 	}

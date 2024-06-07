@@ -1,5 +1,7 @@
 package telas;
 
+import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +21,7 @@ public class TelaCadastroCobra {
 	
 		
 		JFrame frameTelaCadastroCobra = new JFrame(); // Criando o frame da tela
+		GridLayout grid = new GridLayout(0, 1);
 		
 		frameTelaCadastroCobra.setSize(200, 200); // Setando o tamanho da tela
 		JPanel painelTelaCadastroCobra = new JPanel(); // Criando o painel da tela de Cadastro
@@ -40,6 +43,7 @@ public class TelaCadastroCobra {
 		
 		JTextField caixaTextoTerceiroCampo = new JTextField(10);
 		painelTelaCadastroCobra.add(caixaTextoTerceiroCampo);
+		painelTelaCadastroCobra.setLayout(grid);
 		
 		
 		JButton botaoCadastrar = new JButton("Enviar"); // Criando o botão enviar para que os dados inseridos pelo usuario sejam cadastrados 
@@ -49,7 +53,7 @@ public class TelaCadastroCobra {
 		frameTelaCadastroCobra.add(painelTelaCadastroCobra); // criando o frame do painel da tela de cadastro do cachorro
 		frameTelaCadastroCobra.setVisible(true); // deixando o frame visivel
 		
-		TelaCadastroCobraControlador cadastroCobraControlador = new TelaCadastroCobraControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo);
+		TelaCadastroCobraControlador cadastroCobraControlador = new TelaCadastroCobraControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCobra);
 		botaoCadastrar.addActionListener(cadastroCobraControlador);
 		
 	}

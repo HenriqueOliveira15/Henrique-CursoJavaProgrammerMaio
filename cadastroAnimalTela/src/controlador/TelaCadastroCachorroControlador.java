@@ -3,6 +3,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Arquivo.ManipuladorArquivo;
@@ -15,6 +17,7 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 	JTextField caixaTextoPrimeiroCampoRecebido; 
 	JTextField caixaTextoSegundoCampoRecebido; 
 	JTextField caixaTextoTerceiroCampoRecebido; 
+	JFrame frameTelaCadastroCachorro;
 	
 	ManipuladorArquivo manipuladorArquivo = new ManipuladorArquivo();
 	DaoCachorro daoCachorro = new DaoCachorro();
@@ -22,10 +25,11 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 	
 	
 	public TelaCadastroCachorroControlador(JTextField caixaTextoPrimeiroCampoRecebido,
-			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido) {
+			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido, JFrame frameTelaCadastroCachorro) {
 		this.caixaTextoPrimeiroCampoRecebido = caixaTextoPrimeiroCampoRecebido;
 		this.caixaTextoSegundoCampoRecebido = caixaTextoSegundoCampoRecebido;
 		this.caixaTextoTerceiroCampoRecebido = caixaTextoTerceiroCampoRecebido;
+		this.frameTelaCadastroCachorro = frameTelaCadastroCachorro;
 	}
 	
 
@@ -40,6 +44,8 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 		
 		System.out.println("A COR DO PELO do cachorro: " + caixaTextoTerceiroCampoRecebido.getText());
 		
+		frameTelaCadastroCachorro.setVisible(false);
+		
 		
 	}
 	
@@ -52,9 +58,14 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 		cachorro.setCorPelo(caixaTextoTerceiroCampoRecebido.getText());
 		
 		manipuladorArquivo.registrarCachorro(cachorro);
-		daoCachorro.salvarCachorro(cachorro);
+		
+		if(daoCachorro.salvarCachorro(cachorro)){
+			JOptionPane.showMessageDialog(null, "Dados salvo com sucesso");
+		}else {
+			JOptionPane.showMessageDialog(null, "Nao foi possivel salvar os dados");
 		
 		
 	}
 
+	}
 }
