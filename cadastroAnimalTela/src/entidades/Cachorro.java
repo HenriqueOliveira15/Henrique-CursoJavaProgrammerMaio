@@ -2,15 +2,17 @@ package entidades;
 
 public class Cachorro extends Animal{
 	
-	static String CorPelo;
+	private String CorPelo;
 
-	public static String getCorPelo() {
+	public String getCorPelo() {
 		return CorPelo;
 	}
 
 	public void setCorPelo(String corPelo) {
 		CorPelo = corPelo;
 	}
+
+	
 
 	
 }

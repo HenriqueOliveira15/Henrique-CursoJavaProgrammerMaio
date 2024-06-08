@@ -19,11 +19,11 @@ public class ManipuladorArquivo {
 			
 			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(enderecoArquivo));
 			
-			bufferedWriter.append("O NOME  do cachorro é: " + Animal.getNome());
+			bufferedWriter.append("O NOME  do cachorro é: " + cachorro.getNome());
 			bufferedWriter.newLine();
-			bufferedWriter.append("O CAF do cachorro é: " + Animal.getCaf());
+			bufferedWriter.append("O CAF do cachorro é: " + cachorro.getCaf());
 			bufferedWriter.newLine();
-			bufferedWriter.append("A COR DO PELO do cachorro é: " + Cachorro.getCorPelo());
+			bufferedWriter.append("A COR DO PELO do cachorro é: " + cachorro.getCorPelo());
 			
 			bufferedWriter.close();
 				
@@ -41,11 +41,11 @@ public class ManipuladorArquivo {
 		
 		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(enderecoArquivo));
 		
-		bufferedWriter.append("O NOME  da cobra é: " + Animal.getNome());
+		bufferedWriter.append("O NOME  da cobra é: " + cobra.getNome());
 		bufferedWriter.newLine();
-		bufferedWriter.append("O CAF da cobra é: " + Animal.getCaf());
+		bufferedWriter.append("O CAF da cobra é: " + cobra.getCaf());
 		bufferedWriter.newLine();
-		bufferedWriter.append("O TIPO DE VENENO da cobra é: " + Cobra.getTipoVeneno());
+		bufferedWriter.append("O TIPO DE VENENO da cobra é: " + cobra.getTipoVeneno());
 		
 		bufferedWriter.close();
 			

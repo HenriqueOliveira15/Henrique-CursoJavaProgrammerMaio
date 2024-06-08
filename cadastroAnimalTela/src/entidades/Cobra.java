@@ -2,15 +2,19 @@ package entidades;
 
 public class Cobra extends Animal{
 	
-	static String TipoVeneno;
+	private String TipoVeneno;
 
-	public static String getTipoVeneno() {
+	public String getTipoVeneno() {
 		return TipoVeneno;
 	}
 
 	public void setTipoVeneno(String tipoVeneno) {
 		TipoVeneno = tipoVeneno;
 	}
+	
+	
+
+
 
 	
 }
