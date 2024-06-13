@@ -7,7 +7,7 @@ public class FabricaConexao {
 	
 	private static String USUARIO= "root";
 	private static String SENHA = "root";
-	private static String BANCO_URL = "jdbc:mysql://localhost:3306/cadastro_Animal?useTimezone=true&serverTimezone=UTC";
+	private static String BANCO_URL = "jdbc:mysql://localhost:3306/cadastro_animal?useTimezone=true&serverTimezone=UTC";
 	
 	public Connection criarConexaoCadastroAnimal() {
 		

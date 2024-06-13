@@ -10,7 +10,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import entidades.Cobra;
 import persistencia.DaoCobra;
+import repositorio.CobraRepositorioImp;
+import telas.TelaAlterarCobra;
 import telas.TelaCadastroCobra;
+import telas.TelaDeletarCobra;
 import telas.TelaListarCobra;
 
 public class TelaMenuCobraControlador implements ActionListener {
@@ -19,6 +22,10 @@ public class TelaMenuCobraControlador implements ActionListener {
 	JFrame frameTelaMenuCobra;
 	
 	TelaListarCobra telaListarCobra = new TelaListarCobra();
+	TelaDeletarCobra telaDeletarCobra = new TelaDeletarCobra();
+	TelaAlterarCobra telaAlterarCobra = new TelaAlterarCobra();
+	
+	CobraRepositorioImp cobraRepositorio = new CobraRepositorioImp();
 
 	public TelaMenuCobraControlador(JTextField opcaoRecebida, JFrame frameTelaMenuCobraFrame) {
 		this.opcaoRecebida = opcaoRecebida;
@@ -30,7 +37,7 @@ public class TelaMenuCobraControlador implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		if (opcaoRecebida.getText().equals("1") || opcaoRecebida.getText().equals("2")) {
+		if (opcaoRecebida.getText().equals("1") || opcaoRecebida.getText().equals("2") || opcaoRecebida.getText().equals("3") || opcaoRecebida.getText().equals("4")){
 			switch (opcaoRecebida.getText()) {
 			case "1":
 				TelaCadastroCobra.chamartelaCadastroCobra();
@@ -44,7 +51,13 @@ public class TelaMenuCobraControlador implements ActionListener {
 				break;
 
 			case "3":
-				System.exit(0);
+				telaDeletarCobra.chamarTelaDeletarCobra(cobraRepositorio.listarCobraRepositorio());
+				System.out.println("Direcione para deletar cobra");
+				break;
+				
+			case "4":
+				telaAlterarCobra.chamarTelaAlterarCobra(cobraRepositorio.listarCobraRepositorio());
+				System.out.println("Direcione para alterar cobra");
 				break;
 
 			}

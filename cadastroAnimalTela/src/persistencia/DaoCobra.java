@@ -69,7 +69,7 @@ public class DaoCobra {
 		ResultSet resultadoTabelaCobra = null;
 
 		try {
-
+			
 			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroAnimal();
 			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlBuscarCobra);
 			resultadoTabelaCobra = preparaComandoSQL.executeQuery();
@@ -104,6 +104,103 @@ public class DaoCobra {
 		}
 
 		return listacobra;
+
+	}
+	
+	public boolean deletarCobra(String caf) {
+		
+		boolean deletar = false;
+		
+		FabricaConexao conexaoConectarBancoTeste = new FabricaConexao();
+		Connection connectionBaseTeste = null;
+		PreparedStatement preparaComandoSQL = null;
+		
+		String comandoSqlDelete = "delete from tb_cobra where caf = ?";
+
+		try {
+			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroAnimal(); 
+																																							
+			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlDelete);
+																							
+			preparaComandoSQL.setString(1, caf);// 
+			
+			preparaComandoSQL.execute();
+
+			System.out.println("Cobra Deletada");
+
+			deletar = true; 
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(" Não foi possivel deletar a cobra!");
+
+		} finally { 
+			try {
+				if (connectionBaseTeste != null) {
+					connectionBaseTeste.close();
+				}
+				if (connectionBaseTeste != null) {
+					connectionBaseTeste.close();
+				}
+
+			} catch (Exception e2) {
+				System.out.println("Não foi possivel fechar a conexão!!");
+			}
+
+		}
+
+		return deletar;
+
+	}
+	
+	
+	public boolean alterarCobra(Cobra cobra) {
+
+		boolean salvamento = false;
+
+		FabricaConexao conexaoConectarBancoTeste = new FabricaConexao();
+		Connection connectionBaseTeste = null;
+		PreparedStatement preparaComandoSQL = null;
+
+		String comandoSqlUpdate = "UPDATE tb_cobra SET nome = ?, tipoveneno = ? WHERE caf = ?"; 
+																									
+		try {
+			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroAnimal();  
+		
+			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlUpdate);
+											
+			preparaComandoSQL.setString(1, cobra.getNome());
+			
+			preparaComandoSQL.setString(2, cobra.getCaf()); 
+			
+			preparaComandoSQL.setString(3, cobra.getTipoVeneno());
+			
+			preparaComandoSQL.execute(); 
+			
+			System.out.println("A cobra foi alterada");
+
+			salvamento = true;
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(" Não foi possivel alterar a cobra");
+
+		} finally { 
+			try {
+				if (connectionBaseTeste != null) {
+					connectionBaseTeste.close();
+				}
+				if (connectionBaseTeste != null) {
+					connectionBaseTeste.close();
+				}
+
+			} catch (Exception e2) {
+				System.out.println("Não foi possivel fechar a conexão!!");
+			}
+
+		}
+
+		return salvamento;
 
 	}
 

@@ -23,9 +23,7 @@ public class DaoCachorro {
 		
 		
 		String comandoSqlInsert = "insert into tb_cachorro (nome, caf, corpelo) values (?, ?, ?)";
-		
-		
-		
+	
 		
 		try {
 			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroAnimal();
@@ -115,9 +113,104 @@ public class DaoCachorro {
 			
 		}
 		
-		return listacachorro;
-			
+		return listacachorro;	
 		
+	}
+	
+	public boolean deletarCachorro(String caf) {
+
+		boolean deletar = false;
+
+		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
+		Connection connectionBaseExemplo = null; 
+		PreparedStatement preparaOcomandoSQL = null; 
+
+		String comandoSqlDelete = "delete from tb_cachorro where caf = ?";
+
+		try {
+			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroAnimal(); 
+																																							
+			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlDelete);
+																							
+			preparaOcomandoSQL.setString(1, caf);// 
+			
+			preparaOcomandoSQL.execute();
+
+			System.out.println("Cachorro Deletado");
+
+			deletar = true; 
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(" Não foi possivel deletar o cachorro!");
+
+		} finally { 
+			try {
+				if (connectionBaseExemplo != null) {
+					connectionBaseExemplo.close();
+				}
+				if (preparaOcomandoSQL != null) {
+					preparaOcomandoSQL.close();
+				}
+
+			} catch (Exception e2) {
+				System.out.println("Não foi possivel fechar a conexão!!");
+			}
+
+		}
+
+		return deletar;
+
+	}
+	
+	public boolean alterarCachorro(Cachorro cachorro) {
+
+		boolean salvamento = false;
+
+		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
+		Connection connectionBaseExemplo = null; 
+		PreparedStatement preparaOcomandoSQL = null; 
+
+		String comandoSqlInsert = "UPDATE tb_cachorro SET nome = ?, corpelo = ? WHERE caf = ?"; 
+																									
+		try {
+			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroAnimal();  
+		
+			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlInsert);	
+											
+			preparaOcomandoSQL.setString(1, cachorro.getNome());
+			
+			preparaOcomandoSQL.setString(2, cachorro.getCaf()); 
+			
+			preparaOcomandoSQL.setString(3, cachorro.getCorPelo());
+			
+			preparaOcomandoSQL.execute(); 
+			
+			System.out.println("O cachorro foi alterado");
+
+			salvamento = true;
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(" Não foi possivel alterar o cachorro");
+
+		} finally { 
+			try {
+				if (connectionBaseExemplo != null) {
+					connectionBaseExemplo.close();
+				}
+				if (preparaOcomandoSQL != null) {
+					preparaOcomandoSQL.close();
+				}
+
+			} catch (Exception e2) {
+				System.out.println("Não foi possivel fechar a conexão!!");
+			}
+
+		}
+
+		return salvamento;
+
 	}
 	
 	

@@ -28,8 +28,11 @@ public static void chamarTelaMenuCobra() {
 		TelaMenuCobra.add(labelListarCobra);
 		TelaMenuCobra.setLayout(grid);
 		
-		JLabel labelOpcaoSair = new JLabel(" 3 - SAIR ");
-		TelaMenuCobra.add(labelOpcaoSair);
+		JLabel labelOpcaoDeletar = new JLabel(" 3 - DELETAR COBRA ");
+		TelaMenuCobra.add(labelOpcaoDeletar);
+		
+		JLabel labelOpcaoAlterar = new JLabel(" 4 - ALTERAR COBRA ");
+		TelaMenuCobra.add(labelOpcaoAlterar);
 
 		JTextField opcaoTexto = new JTextField(10);
 		

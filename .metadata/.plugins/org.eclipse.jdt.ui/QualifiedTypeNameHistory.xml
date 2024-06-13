@@ -17,9 +17,15 @@
     <fullyQualifiedTypeName name="com.mysql.cj.jdbc.Driver"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="conectaBancoTeste.ConectarBancoTeste"/>
-    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-    <fullyQualifiedTypeName name="persistencia.DaoCobra"/>
     <fullyQualifiedTypeName name="java.awt.GridLayout"/>
     <fullyQualifiedTypeName name="telas.TelaMenuCachorro"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="persistencia.DaoCachorro"/>
+    <fullyQualifiedTypeName name="telas.TelaListarCachorro"/>
+    <fullyQualifiedTypeName name="telas.TelaListarCobra"/>
+    <fullyQualifiedTypeName name="controlador.TelaDeletarCachorroControlador"/>
+    <fullyQualifiedTypeName name="persistencia.DaoCobra"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>

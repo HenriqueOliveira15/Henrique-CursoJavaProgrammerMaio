@@ -27,8 +27,11 @@ public class TelaMenuCachorro {
 		TelaMenuCachorro.add(labelListarCachorro);
 		TelaMenuCachorro.setLayout(grid);
 		
-		JLabel labelOpcaoSair = new JLabel(" 3 - SAIR ");
-		TelaMenuCachorro.add(labelOpcaoSair);
+		JLabel labelOpcaoDeletarCachorro = new JLabel(" 3 - DELETAR CACHORRO");
+		TelaMenuCachorro.add(labelOpcaoDeletarCachorro);
+		
+		JLabel labelOpcaoAlterarCachorro = new JLabel("4 - ALTERAR CACHORRO");
+		TelaMenuCachorro.add(labelOpcaoAlterarCachorro);
 
 		JTextField opcaoTexto = new JTextField(10);
 		
