@@ -28,4 +28,5 @@
     <fullyQualifiedTypeName name="controlador.TelaDeletarCachorroControlador"/>
     <fullyQualifiedTypeName name="persistencia.DaoCobra"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="telas.TelaMenuInicial"/>
 </qualifiedTypeNameHistroy>

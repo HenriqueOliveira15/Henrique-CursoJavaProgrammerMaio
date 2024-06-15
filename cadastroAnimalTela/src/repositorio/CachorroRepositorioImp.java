@@ -21,16 +21,8 @@ public class CachorroRepositorioImp implements CachorroRepositorio {
 
 
 	public boolean excluirCachorroRepositorio(String caf) {
-
-		DaoCachorro daoCachorro = new DaoCachorro();
-
-		for (Cachorro cachorro : listarCachorroRepositorio()) {
-			if (cachorro.getCaf().equals(caf)) {
-				return daoCachorro.deletarCachorro(caf);
-			}
-
-		}
-		return false;
+		DaoCachorro telaCachorro = new DaoCachorro();
+				return telaCachorro.deletarCachorro(caf);
 
 	}
 	

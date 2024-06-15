@@ -171,9 +171,9 @@ public class DaoCobra {
 											
 			preparaComandoSQL.setString(1, cobra.getNome());
 			
-			preparaComandoSQL.setString(2, cobra.getCaf()); 
+			preparaComandoSQL.setString(2, cobra.getTipoVeneno()); 
 			
-			preparaComandoSQL.setString(3, cobra.getTipoVeneno());
+			preparaComandoSQL.setString(3, cobra.getCaf());
 			
 			preparaComandoSQL.execute(); 
 			

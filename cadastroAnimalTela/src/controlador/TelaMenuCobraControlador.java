@@ -15,6 +15,7 @@ import telas.TelaAlterarCobra;
 import telas.TelaCadastroCobra;
 import telas.TelaDeletarCobra;
 import telas.TelaListarCobra;
+import telas.TelaMenuInicial;
 
 public class TelaMenuCobraControlador implements ActionListener {
 
@@ -24,6 +25,7 @@ public class TelaMenuCobraControlador implements ActionListener {
 	TelaListarCobra telaListarCobra = new TelaListarCobra();
 	TelaDeletarCobra telaDeletarCobra = new TelaDeletarCobra();
 	TelaAlterarCobra telaAlterarCobra = new TelaAlterarCobra();
+	TelaMenuInicial telaMenuInicial = new TelaMenuInicial();
 	
 	CobraRepositorioImp cobraRepositorio = new CobraRepositorioImp();
 
@@ -37,7 +39,7 @@ public class TelaMenuCobraControlador implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		if (opcaoRecebida.getText().equals("1") || opcaoRecebida.getText().equals("2") || opcaoRecebida.getText().equals("3") || opcaoRecebida.getText().equals("4")){
+		if (opcaoRecebida.getText().equals("1") || opcaoRecebida.getText().equals("2") || opcaoRecebida.getText().equals("3") || opcaoRecebida.getText().equals("4")|| opcaoRecebida.getText().equals("5")){
 			switch (opcaoRecebida.getText()) {
 			case "1":
 				TelaCadastroCobra.chamartelaCadastroCobra();
@@ -59,12 +61,15 @@ public class TelaMenuCobraControlador implements ActionListener {
 				telaAlterarCobra.chamarTelaAlterarCobra(cobraRepositorio.listarCobraRepositorio());
 				System.out.println("Direcione para alterar cobra");
 				break;
-
+				
+			case "5": 
+				telaMenuInicial.chamarTelaMenuIniciar();
+				System.out.println("Direcione Para o Menu Inicial");
+				frameTelaMenuCobra.setVisible(false);
+				break;
 			}
-		} else {
-			JOptionPane.showMessageDialog(null, "A opção " + opcaoRecebida.getText() + " não é válida");
 		}
-
+		
 	}
 
 	public void imprimirCobra(List<Cobra> listaCobra) {

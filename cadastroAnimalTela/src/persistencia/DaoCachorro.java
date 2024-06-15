@@ -167,24 +167,25 @@ public class DaoCachorro {
 
 		boolean salvamento = false;
 
-		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
-		Connection connectionBaseExemplo = null; 
-		PreparedStatement preparaOcomandoSQL = null; 
+		FabricaConexao conexaoConectarBancoTeste = new FabricaConexao();
+		Connection connectionBaseTeste = null;
+		PreparedStatement preparaComandoSQL = null;
 
+		
 		String comandoSqlInsert = "UPDATE tb_cachorro SET nome = ?, corpelo = ? WHERE caf = ?"; 
 																									
 		try {
-			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroAnimal();  
+			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroAnimal();  
 		
-			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlInsert);	
+			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlInsert);	
 											
-			preparaOcomandoSQL.setString(1, cachorro.getNome());
+			preparaComandoSQL.setString(1, cachorro.getNome());
 			
-			preparaOcomandoSQL.setString(2, cachorro.getCaf()); 
+			preparaComandoSQL.setString(2, cachorro.getCorPelo()); 
 			
-			preparaOcomandoSQL.setString(3, cachorro.getCorPelo());
+			preparaComandoSQL.setString(3, cachorro.getCaf());
 			
-			preparaOcomandoSQL.execute(); 
+			preparaComandoSQL.execute(); 
 			
 			System.out.println("O cachorro foi alterado");
 
@@ -196,11 +197,11 @@ public class DaoCachorro {
 
 		} finally { 
 			try {
-				if (connectionBaseExemplo != null) {
-					connectionBaseExemplo.close();
+				if (connectionBaseTeste != null) {
+					connectionBaseTeste.close();
 				}
-				if (preparaOcomandoSQL != null) {
-					preparaOcomandoSQL.close();
+				if (connectionBaseTeste != null) {
+					connectionBaseTeste.close();
 				}
 
 			} catch (Exception e2) {

@@ -2,15 +2,16 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 
+
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import Arquivo.ManipuladorArquivo;
 import entidades.Cobra;
 import persistencia.DaoCobra;
+import telas.TelaMenuCobra;
 
 
 public class TelaCadastroCobraControlador implements ActionListener{
@@ -19,9 +20,10 @@ public class TelaCadastroCobraControlador implements ActionListener{
 	JTextField caixaTextoSegundoCampoRecebido; 
 	JTextField caixaTextoTerceiroCampoRecebido; 
 	JFrame frameTelaCadastroCobra;
-	
-	ManipuladorArquivo manipuladorArquivo = new ManipuladorArquivo();
+
 	DaoCobra daoCobra = new DaoCobra();
+	
+	TelaMenuCobra telaMenuCobra = new TelaMenuCobra();
 	
 	public TelaCadastroCobraControlador(JTextField caixaTextoPrimeiroCampoRecebido,
 			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido, JFrame frameTelaCadastroCobra) {
@@ -45,6 +47,10 @@ public class TelaCadastroCobraControlador implements ActionListener{
 		
 		frameTelaCadastroCobra.setVisible(false);
 		
+		if(e.getActionCommand().equals("Voltar")){
+			System.out.println("Voltar para o menu");
+			telaMenuCobra.chamarTelaMenuCobra();
+		}
 	}
 	
 	public void registrarArquivo() {
@@ -54,8 +60,6 @@ public class TelaCadastroCobraControlador implements ActionListener{
 		cobra.setNome(caixaTextoPrimeiroCampoRecebido.getText());
 		cobra.setCaf(caixaTextoSegundoCampoRecebido.getText());
 		cobra.setTipoVeneno(caixaTextoTerceiroCampoRecebido.getText());
-		
-		manipuladorArquivo.registrarCobra(cobra);
 		
 		if(daoCobra.salvarCobra(cobra)){
 			JOptionPane.showMessageDialog(null, "Dados salvos com sucesso");

@@ -1,15 +1,16 @@
 package controlador;
 
+import java.awt.Window;
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
-import Arquivo.ManipuladorArquivo;
 import entidades.Cachorro;
 import persistencia.DaoCachorro;
+import telas.TelaMenuCachorro;
 
 public class TelaCadastroCachorroControlador implements ActionListener {
 	
@@ -18,9 +19,10 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 	JTextField caixaTextoSegundoCampoRecebido; 
 	JTextField caixaTextoTerceiroCampoRecebido; 
 	JFrame frameTelaCadastroCachorro;
-	
-	ManipuladorArquivo manipuladorArquivo = new ManipuladorArquivo();
+
 	DaoCachorro daoCachorro = new DaoCachorro();
+	
+	TelaMenuCachorro telaMenuCachorro = new TelaMenuCachorro();
 	
 	
 	
@@ -35,19 +37,30 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
+		if (e.getActionCommand().equals("Enviar")) {
+			registrarArquivo(); // chamando o metodo de registrar o arquivo
+
+			System.out.println("O NOME do cachorro: " + caixaTextoPrimeiroCampoRecebido.getText());
+
+			System.out.println("O CAF do cachorro: " + caixaTextoSegundoCampoRecebido.getText());
+
+			System.out.println("A COR DO PELO do cachorro: " + caixaTextoTerceiroCampoRecebido.getText());
+
+			frameTelaCadastroCachorro.setVisible(false);
+
+		}
 		
-		registrarArquivo(); // chamando o metodo de registrar o arquivo
-		
-		System.out.println("O NOME do cachorro: " + caixaTextoPrimeiroCampoRecebido.getText());
-		
-		System.out.println("O CAF do cachorro: " + caixaTextoSegundoCampoRecebido.getText());
-		
-		System.out.println("A COR DO PELO do cachorro: " + caixaTextoTerceiroCampoRecebido.getText());
-		
-		frameTelaCadastroCachorro.setVisible(false);
-		
+		if(e.getActionCommand().equals("Voltar")){
+			System.out.println("Voltar para o menu");
+			telaMenuCachorro.chamarTelaMenuCachorro();
+			frameTelaCadastroCachorro.setVisible(false);
+		}
+	
 		
 	}
+	
+	
 	
 	public void registrarArquivo() {
 		
@@ -57,7 +70,6 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 		cachorro.setCaf(caixaTextoSegundoCampoRecebido.getText());
 		cachorro.setCorPelo(caixaTextoTerceiroCampoRecebido.getText());
 		
-		manipuladorArquivo.registrarCachorro(cachorro);
 		
 		if(daoCachorro.salvarCachorro(cachorro)){
 			JOptionPane.showMessageDialog(null, "Dados salvo com sucesso");

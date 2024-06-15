@@ -33,6 +33,9 @@ public static void chamarTelaMenuCobra() {
 		
 		JLabel labelOpcaoAlterar = new JLabel(" 4 - ALTERAR COBRA ");
 		TelaMenuCobra.add(labelOpcaoAlterar);
+		
+		JLabel labelOpcaoVoltar = new JLabel(" 5 - VOLTAR PARA O MENU ");
+		TelaMenuCobra.add(labelOpcaoVoltar);
 
 		JTextField opcaoTexto = new JTextField(10);
 		
@@ -41,15 +44,13 @@ public static void chamarTelaMenuCobra() {
 		
 		JButton botaoEnviar = new JButton("Enviar");
 		TelaMenuCobra.add(botaoEnviar);
-		
-		
-		
 
 		frameTelaMenuCobra.add(TelaMenuCobra);
 		frameTelaMenuCobra.setVisible(true);
 		
 		TelaMenuCobraControlador telaMenuCobraControlador = new TelaMenuCobraControlador(opcaoTexto, frameTelaMenuCobra);
 		botaoEnviar.addActionListener(telaMenuCobraControlador);
+	
 		
 	}
 

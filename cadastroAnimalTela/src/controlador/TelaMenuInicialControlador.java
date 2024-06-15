@@ -27,7 +27,7 @@ public class TelaMenuInicialControlador implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(opcao.getText().equals("1") || opcao.getText().equals("2")) {
+		if(opcao.getText().equals("1") || opcao.getText().equals("2") || opcao.getText().equals("3")) {
 			switch (opcao.getText()) {
 					case "1": 	
 						TelaMenuCachorro.chamarTelaMenuCachorro();

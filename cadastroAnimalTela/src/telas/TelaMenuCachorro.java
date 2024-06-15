@@ -32,6 +32,9 @@ public class TelaMenuCachorro {
 		
 		JLabel labelOpcaoAlterarCachorro = new JLabel("4 - ALTERAR CACHORRO");
 		TelaMenuCachorro.add(labelOpcaoAlterarCachorro);
+		
+		JLabel labelOpcaoVoltar = new JLabel("5 - VOLTAR PARA O MENU");
+		TelaMenuCachorro.add(labelOpcaoVoltar);
 
 		JTextField opcaoTexto = new JTextField(10);
 		
@@ -41,14 +44,12 @@ public class TelaMenuCachorro {
 		JButton botaoEnviar = new JButton("Enviar");
 		TelaMenuCachorro.add(botaoEnviar);
 		
-		
-		
-
 		frameTelaMenuCachorro.add(TelaMenuCachorro);
 		frameTelaMenuCachorro.setVisible(true);
 		
 		TelaMenuCachorroControlador telaMenuCachorroControlador = new TelaMenuCachorroControlador(opcaoTexto, frameTelaMenuCachorro);
 		botaoEnviar.addActionListener(telaMenuCachorroControlador);
+
 		
 	}
 

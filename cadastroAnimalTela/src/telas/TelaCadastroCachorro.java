@@ -49,12 +49,16 @@ public class TelaCadastroCachorro {
 		JButton botaoCadastrar = new JButton("Enviar"); // Criando o botão enviar para que os dados inseridos pelo usuario sejam cadastrados 
 		painelTelaCadastroCachorro.add(botaoCadastrar); // adicionando o botão no painel
 		
+		JButton botaoVoltar = new JButton("Voltar");
+		painelTelaCadastroCachorro.add(botaoVoltar); 
 		
 		frameTelaCadastroCachorro.add(painelTelaCadastroCachorro); // criando o frame do painel da tela de cadastro do cachorro
 		frameTelaCadastroCachorro.setVisible(true); // deixando o frame visivel
 		
 		TelaCadastroCachorroControlador cadastroCachorroControlador = new TelaCadastroCachorroControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCachorro);
 		botaoCadastrar.addActionListener(cadastroCachorroControlador);
+		botaoVoltar.addActionListener(cadastroCachorroControlador);
+		
 		
 	}
 

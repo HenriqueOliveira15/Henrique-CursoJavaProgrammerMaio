@@ -17,14 +17,13 @@ public class TelaFormularioAlterarCachorro {
 
 		GridLayout grid = new GridLayout(0, 1);
 		String primeiroCampo = "Digite o nome do Cachorro";
-		String terceiroCampo = "Digite a Cor do Pelo do Cachorro";
+		String terceiroCampo = "Digite a cor do pelo do Cachorro";
 
 		JFrame frameTelaCadastroCachorro = new JFrame();
 
 		frameTelaCadastroCachorro.setSize(200, 250); 
 		JPanel panelTelaCadastroCachorro = new JPanel();
-		
-		JLabel labelSegundoCampo = new JLabel("CAF: " + cachorro.getCaf() ); 
+		JLabel labelSegundoCampo = new JLabel("CPF: " + cachorro.getCorPelo() ); 
 		panelTelaCadastroCachorro.add(labelSegundoCampo);
 
 	
@@ -50,9 +49,11 @@ public class TelaFormularioAlterarCachorro {
 		frameTelaCadastroCachorro.add(panelTelaCadastroCachorro);
 		frameTelaCadastroCachorro.setVisible(true);
 		
-		TelaFormularioAlterarCachorroControlador alterarCachorroControlador = new TelaFormularioAlterarCachorroControlador(caixaTextoPrimeiroCampo, cachorro.getCaf(), caixaTextoTerceiroCampo,  frameTelaCadastroCachorro);
+		TelaFormularioAlterarCachorroControlador alterarCachorroControlador = new TelaFormularioAlterarCachorroControlador(caixaTextoPrimeiroCampo, cachorro.getCaf(), caixaTextoTerceiroCampo, frameTelaCadastroCachorro);
 		botaoCadastrar.addActionListener(alterarCachorroControlador);
 		
+		
+
 	
 	}
 	
