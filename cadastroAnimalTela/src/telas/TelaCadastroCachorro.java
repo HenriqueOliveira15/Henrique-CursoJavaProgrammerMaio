@@ -18,6 +18,7 @@ public class TelaCadastroCachorro {
 		String primeiroCampo = "Informe o NOME do Cachorro";
 		String segundoCampo = "Informe o CAF do Cachorro";
 		String terceiroCampo = "Informe a COR do pelo do Cachorro";
+		String quartoCampo = "Informe o PESO do Cachorro ";
 	
 		
 		JFrame frameTelaCadastroCachorro = new JFrame(); // Criando o frame da tela
@@ -45,6 +46,12 @@ public class TelaCadastroCachorro {
 		painelTelaCadastroCachorro.add(caixaTextoTerceiroCampo);
 		painelTelaCadastroCachorro.setLayout(grid);
 		
+		JLabel labelQuartoCampo = new JLabel (quartoCampo);
+		painelTelaCadastroCachorro.add(labelQuartoCampo);
+		
+		JTextField caixaTextoQuartoCampo = new JTextField(10);
+		painelTelaCadastroCachorro.add(caixaTextoQuartoCampo);
+		
 		
 		JButton botaoCadastrar = new JButton("Enviar"); // Criando o botão enviar para que os dados inseridos pelo usuario sejam cadastrados 
 		painelTelaCadastroCachorro.add(botaoCadastrar); // adicionando o botão no painel
@@ -55,7 +62,7 @@ public class TelaCadastroCachorro {
 		frameTelaCadastroCachorro.add(painelTelaCadastroCachorro); // criando o frame do painel da tela de cadastro do cachorro
 		frameTelaCadastroCachorro.setVisible(true); // deixando o frame visivel
 		
-		TelaCadastroCachorroControlador cadastroCachorroControlador = new TelaCadastroCachorroControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCachorro);
+		TelaCadastroCachorroControlador cadastroCachorroControlador = new TelaCadastroCachorroControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCachorro, caixaTextoQuartoCampo);
 		botaoCadastrar.addActionListener(cadastroCachorroControlador);
 		botaoVoltar.addActionListener(cadastroCachorroControlador);
 		

@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import entidades.Cachorro;
 import persistencia.DaoCachorro;
+import repositorio.CachorroRepositorioImp;
 import telas.TelaMenuCachorro;
 
 public class TelaCadastroCachorroControlador implements ActionListener {
@@ -19,19 +20,22 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 	JTextField caixaTextoSegundoCampoRecebido; 
 	JTextField caixaTextoTerceiroCampoRecebido; 
 	JFrame frameTelaCadastroCachorro;
+	JTextField peso;
 
 	DaoCachorro daoCachorro = new DaoCachorro();
-	
+	CachorroRepositorioImp cachorroRepositorioImp = new CachorroRepositorioImp();
 	TelaMenuCachorro telaMenuCachorro = new TelaMenuCachorro();
 	
 	
 	
+	
 	public TelaCadastroCachorroControlador(JTextField caixaTextoPrimeiroCampoRecebido,
-			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido, JFrame frameTelaCadastroCachorro) {
+			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido, JFrame frameTelaCadastroCachorro, JTextField peso) {
 		this.caixaTextoPrimeiroCampoRecebido = caixaTextoPrimeiroCampoRecebido;
 		this.caixaTextoSegundoCampoRecebido = caixaTextoSegundoCampoRecebido;
 		this.caixaTextoTerceiroCampoRecebido = caixaTextoTerceiroCampoRecebido;
 		this.frameTelaCadastroCachorro = frameTelaCadastroCachorro;
+		this.peso = peso;
 	}
 	
 
@@ -70,8 +74,7 @@ public class TelaCadastroCachorroControlador implements ActionListener {
 		cachorro.setCaf(caixaTextoSegundoCampoRecebido.getText());
 		cachorro.setCorPelo(caixaTextoTerceiroCampoRecebido.getText());
 		
-		
-		if(daoCachorro.salvarCachorro(cachorro)){
+		if(cachorroRepositorioImp.salvarCachorro(cachorro, peso.getText())){
 			JOptionPane.showMessageDialog(null, "Dados salvo com sucesso");
 		}else {
 			JOptionPane.showMessageDialog(null, "Nao foi possivel salvar os dados");

@@ -6,7 +6,7 @@ import entidades.Cobra;
 
 public interface CobraRepositorio {
 	
-	public boolean salvarCobra(Cobra cobra);
+	public boolean salvarCobra(Cobra cobra, String peso);
 	
 	public List<Cobra> listarCobraRepositorio();
 	

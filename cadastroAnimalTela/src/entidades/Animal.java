@@ -4,6 +4,7 @@ public abstract class Animal {
 	
 	private  String Nome; 
 	private  String Caf;
+	private Double Peso;
 	
 	public String getNome() {
 		return Nome;
@@ -18,10 +19,19 @@ public abstract class Animal {
 		Caf = caf;
 	}
 	
+	public Double getPeso() {
+		return Peso;
+	}
+	public void setPreco(Double peso) {
+		Peso = peso;
+	}
 	
 	
-	
-	
+	public Double calcularPreco (double peso) {
+
+		return peso * 100.00;
+
+	}
 	
 }
 

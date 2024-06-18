@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import entidades.Cobra;
 import persistencia.DaoCobra;
+import repositorio.CobraRepositorioImp;
 import telas.TelaMenuCobra;
 
 
@@ -20,18 +21,20 @@ public class TelaCadastroCobraControlador implements ActionListener{
 	JTextField caixaTextoSegundoCampoRecebido; 
 	JTextField caixaTextoTerceiroCampoRecebido; 
 	JFrame frameTelaCadastroCobra;
+	JTextField peso;
 
 	DaoCobra daoCobra = new DaoCobra();
-	
+	CobraRepositorioImp cobraRepositorioImp = new CobraRepositorioImp();
 	TelaMenuCobra telaMenuCobra = new TelaMenuCobra();
 	
 	public TelaCadastroCobraControlador(JTextField caixaTextoPrimeiroCampoRecebido,
-			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido, JFrame frameTelaCadastroCobra) {
+			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido, JFrame frameTelaCadastroCobra, JTextField peso) {
 		
 		this.caixaTextoPrimeiroCampoRecebido = caixaTextoPrimeiroCampoRecebido;
 		this.caixaTextoSegundoCampoRecebido = caixaTextoSegundoCampoRecebido;
 		this.caixaTextoTerceiroCampoRecebido = caixaTextoTerceiroCampoRecebido;
 		this.frameTelaCadastroCobra = frameTelaCadastroCobra;
+		this.peso = peso;
 	}
 
 	@Override
@@ -61,7 +64,7 @@ public class TelaCadastroCobraControlador implements ActionListener{
 		cobra.setCaf(caixaTextoSegundoCampoRecebido.getText());
 		cobra.setTipoVeneno(caixaTextoTerceiroCampoRecebido.getText());
 		
-		if(daoCobra.salvarCobra(cobra)){
+		if(cobraRepositorioImp.salvarCobra(cobra, peso.getText())){
 			JOptionPane.showMessageDialog(null, "Dados salvos com sucesso");
 		}else {
 			JOptionPane.showMessageDialog(null, "Nao foi possivel salvar os dados");

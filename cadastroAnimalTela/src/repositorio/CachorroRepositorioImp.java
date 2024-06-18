@@ -4,13 +4,23 @@ import java.util.List;
 
 import entidades.Cachorro;
 import persistencia.DaoCachorro;
+import servicos.EntidadeService;
 
 public class CachorroRepositorioImp implements CachorroRepositorio {
 
 	@Override
-	public boolean salvarCachorro(Cachorro cachorro) {
+	public boolean salvarCachorro(Cachorro cachorro, String peso) {
 			DaoCachorro daoCachorro = new DaoCachorro();
-			return daoCachorro.salvarCachorro(cachorro);
+			EntidadeService entidadeService = new EntidadeService();
+			
+			if (entidadeService.calculaPrecoCachorro(peso) == null) {
+				return false;
+			} else {
+				cachorro.setPreco(entidadeService.calculaPrecoCachorro(peso));
+				return daoCachorro.salvarCachorro(cachorro);
+			}
+			
+		
 	}
 
 	@Override

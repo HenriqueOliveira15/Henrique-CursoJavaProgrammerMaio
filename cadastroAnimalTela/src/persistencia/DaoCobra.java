@@ -18,7 +18,7 @@ public class DaoCobra {
 		Connection connectionBaseTeste = null;
 		PreparedStatement preparaComandoSQL = null;
 
-		String comandoSqlInsert = "insert into tb_cobra (nome, caf, tipoveneno) values (?, ?, ?)";
+		String comandoSqlInsert = "insert into tb_cobra (nome, caf, tipoveneno, preco) values (?, ?, ?, ?)";
 
 		try {
 			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroAnimal();
@@ -28,6 +28,7 @@ public class DaoCobra {
 			preparaComandoSQL.setString(1, cobra.getNome());
 			preparaComandoSQL.setString(2, cobra.getCaf());
 			preparaComandoSQL.setString(3, cobra.getTipoVeneno());
+			preparaComandoSQL.setString(4, cobra.getPeso().toString());
 
 			preparaComandoSQL.execute();
 

@@ -4,13 +4,21 @@ import java.util.List;
 
 import entidades.Cobra;
 import persistencia.DaoCobra;
+import servicos.EntidadeService;
 
 public class CobraRepositorioImp implements CobraRepositorio{
 
 	@Override
-	public boolean salvarCobra(Cobra cobra) {
+	public boolean salvarCobra(Cobra cobra, String peso) {
 		DaoCobra daoCobra = new DaoCobra();
-		return daoCobra.salvarCobra(cobra);
+		EntidadeService entidadeService = new EntidadeService();
+		
+		if (entidadeService.calculaPrecoCobra(peso) == null) {
+			return false;
+		} else {
+			cobra.setPreco(entidadeService.calculaPrecoCobra(peso));
+			return daoCobra.salvarCobra(cobra);
+		}
 	}
 
 	@Override

@@ -17,20 +17,21 @@ public class TelaCadastroCobra {
 		
 		String primeiroCampo2 = "Informe o NOME da Cobra ";
 		String segundoCampo2 = "Informe o CAF da Cobra";
-		String terceiroCampo2 = "Informe o TIPO DE VENENO da cobra";
+		String terceiroCampo2 = "Informe o TIPO DE VENENO da Cobra";
+		String quartoCampo2 = "Informe o PESO da Cobra";
 	
 		
-		JFrame frameTelaCadastroCobra = new JFrame(); // Criando o frame da tela
+		JFrame frameTelaCadastroCobra = new JFrame();
 		GridLayout grid = new GridLayout(0, 1);
 		
-		frameTelaCadastroCobra.setSize(200, 200); // Setando o tamanho da tela
-		JPanel painelTelaCadastroCobra = new JPanel(); // Criando o painel da tela de Cadastro
+		frameTelaCadastroCobra.setSize(200, 200); 
+		JPanel painelTelaCadastroCobra = new JPanel();
 		
-		JLabel labelPrimeiroCampo = new JLabel (primeiroCampo2); // Criando a label para a String do Nome do Cachorro
-		painelTelaCadastroCobra.add(labelPrimeiroCampo); // Adicionando o primeiro label no painel
+		JLabel labelPrimeiroCampo = new JLabel (primeiroCampo2); 
+		painelTelaCadastroCobra.add(labelPrimeiroCampo); 
 		
-		JTextField caixaTextoPrimeiroCampo = new JTextField(10); // Criando uma caixa de texto para a primeira Label do usuario
-		painelTelaCadastroCobra.add(caixaTextoPrimeiroCampo); // adicionando a label no painel  
+		JTextField caixaTextoPrimeiroCampo = new JTextField(10); 
+		painelTelaCadastroCobra.add(caixaTextoPrimeiroCampo);  
 		
 		JLabel labelSegundoCampo = new JLabel (segundoCampo2); 
 		painelTelaCadastroCobra.add(labelSegundoCampo);
@@ -45,18 +46,24 @@ public class TelaCadastroCobra {
 		painelTelaCadastroCobra.add(caixaTextoTerceiroCampo);
 		painelTelaCadastroCobra.setLayout(grid);
 		
+		JLabel labelQuartoCampo = new JLabel (quartoCampo2); 
+		painelTelaCadastroCobra.add(labelQuartoCampo);
 		
-		JButton botaoCadastrar = new JButton("Enviar"); // Criando o botão enviar para que os dados inseridos pelo usuario sejam cadastrados 
-		painelTelaCadastroCobra.add(botaoCadastrar); // adicionando o botão no painel
+		JTextField caixaTextoQuartoCampo = new JTextField(10);
+		painelTelaCadastroCobra.add(caixaTextoQuartoCampo);
+		
+		
+		JButton botaoCadastrar = new JButton("Enviar"); 
+		painelTelaCadastroCobra.add(botaoCadastrar); 
 		
 		JButton botaoVoltar = new JButton("Voltar");
 		painelTelaCadastroCobra.add(botaoVoltar);
 		
 		
-		frameTelaCadastroCobra.add(painelTelaCadastroCobra); // criando o frame do painel da tela de cadastro do cachorro
-		frameTelaCadastroCobra.setVisible(true); // deixando o frame visivel
+		frameTelaCadastroCobra.add(painelTelaCadastroCobra); 
+		frameTelaCadastroCobra.setVisible(true);
 		
-		TelaCadastroCobraControlador cadastroCobraControlador = new TelaCadastroCobraControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCobra);
+		TelaCadastroCobraControlador cadastroCobraControlador = new TelaCadastroCobraControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCobra, caixaTextoQuartoCampo);
 		botaoCadastrar.addActionListener(cadastroCobraControlador);
 		botaoVoltar.addActionListener(cadastroCobraControlador);
 	}

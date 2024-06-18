@@ -11,8 +11,12 @@ public class Cachorro extends Animal{
 	public void setCorPelo(String corPelo) {
 		CorPelo = corPelo;
 	}
-
 	
+	@Override 
+	public Double calcularPreco(double peso) {
+		
+		return peso * 120.0;
 
+	}
 	
 }

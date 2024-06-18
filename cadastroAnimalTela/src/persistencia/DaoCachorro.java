@@ -22,7 +22,7 @@ public class DaoCachorro {
 		PreparedStatement preparaComandoSQL = null;
 		
 		
-		String comandoSqlInsert = "insert into tb_cachorro (nome, caf, corpelo) values (?, ?, ?)";
+		String comandoSqlInsert = "insert into tb_cachorro (nome, caf, corpelo, preco) values (?, ?, ?, ?)";
 	
 		
 		try {
@@ -33,6 +33,7 @@ public class DaoCachorro {
 			preparaComandoSQL.setString(1, cachorro.getNome());
 			preparaComandoSQL.setString(2, cachorro.getCaf());
 			preparaComandoSQL.setString(3, cachorro.getCorPelo()); 
+			preparaComandoSQL.setString(4, cachorro.getPeso().toString()); 
 			
 			
 			preparaComandoSQL.execute();
