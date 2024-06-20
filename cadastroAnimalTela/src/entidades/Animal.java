@@ -5,7 +5,14 @@ public abstract class Animal {
 	private  String Nome; 
 	private  String Caf;
 	private Double Peso;
-	
+	private Endereco endereco;
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 	public String getNome() {
 		return Nome;
 	}

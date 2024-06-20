@@ -19,12 +19,13 @@ public class TelaCadastroCachorro {
 		String segundoCampo = "Informe o CAF do Cachorro";
 		String terceiroCampo = "Informe a COR do pelo do Cachorro";
 		String quartoCampo = "Informe o PESO do Cachorro ";
+		String cep = "Digite o CEP";
 	
 		
 		JFrame frameTelaCadastroCachorro = new JFrame(); // Criando o frame da tela
 		GridLayout grid = new GridLayout(0, 1);
 		
-		frameTelaCadastroCachorro.setSize(200, 200); // Setando o tamanho da tela
+		frameTelaCadastroCachorro.setSize(300, 300); // Setando o tamanho da tela
 		JPanel painelTelaCadastroCachorro = new JPanel(); // Criando o painel da tela de Cadastro
 		
 		JLabel labelPrimeiroCampo = new JLabel (primeiroCampo); // Criando a label para a String do Nome do Cachorro
@@ -52,6 +53,12 @@ public class TelaCadastroCachorro {
 		JTextField caixaTextoQuartoCampo = new JTextField(10);
 		painelTelaCadastroCachorro.add(caixaTextoQuartoCampo);
 		
+		JLabel jlabelCep = new JLabel(cep);
+		painelTelaCadastroCachorro.add(jlabelCep);
+
+		JTextField caixaTextoCep = new JTextField(10);
+		painelTelaCadastroCachorro.add(caixaTextoCep);
+		
 		
 		JButton botaoCadastrar = new JButton("Enviar"); // Criando o botão enviar para que os dados inseridos pelo usuario sejam cadastrados 
 		painelTelaCadastroCachorro.add(botaoCadastrar); // adicionando o botão no painel
@@ -62,7 +69,8 @@ public class TelaCadastroCachorro {
 		frameTelaCadastroCachorro.add(painelTelaCadastroCachorro); // criando o frame do painel da tela de cadastro do cachorro
 		frameTelaCadastroCachorro.setVisible(true); // deixando o frame visivel
 		
-		TelaCadastroCachorroControlador cadastroCachorroControlador = new TelaCadastroCachorroControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCachorro, caixaTextoQuartoCampo);
+		TelaCadastroCachorroControlador cadastroCachorroControlador = new TelaCadastroCachorroControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCachorro,
+				caixaTextoQuartoCampo, caixaTextoCep);
 		botaoCadastrar.addActionListener(cadastroCachorroControlador);
 		botaoVoltar.addActionListener(cadastroCachorroControlador);
 		

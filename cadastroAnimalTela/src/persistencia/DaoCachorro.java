@@ -22,7 +22,7 @@ public class DaoCachorro {
 		PreparedStatement preparaComandoSQL = null;
 		
 		
-		String comandoSqlInsert = "insert into tb_cachorro (nome, caf, corpelo, preco) values (?, ?, ?, ?)";
+		String comandoSqlInsert = "insert into tb_cachorro (nome, caf, corpelo, preco, cep, localidade, logradouro, bairro, uf) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 		
 		try {
@@ -33,8 +33,12 @@ public class DaoCachorro {
 			preparaComandoSQL.setString(1, cachorro.getNome());
 			preparaComandoSQL.setString(2, cachorro.getCaf());
 			preparaComandoSQL.setString(3, cachorro.getCorPelo()); 
-			preparaComandoSQL.setString(4, cachorro.getPeso().toString()); 
-			
+			preparaComandoSQL.setString(4, cachorro.getPeso().toString());
+			preparaComandoSQL.setString(5, cachorro.getEndereco().getCep());
+			preparaComandoSQL.setString(6, cachorro.getEndereco().getLocalidade());
+			preparaComandoSQL.setString(7, cachorro.getEndereco().getLogradouro());
+			preparaComandoSQL.setString(8, cachorro.getEndereco().getBairro());
+			preparaComandoSQL.setString(9, cachorro.getEndereco().getUf());
 			
 			preparaComandoSQL.execute();
 		
@@ -60,7 +64,6 @@ public class DaoCachorro {
 			} catch (Exception e2) {
 				System.out.println("Não foi possível fechar a conexão");
 			}
-			
 			
 		}
 	

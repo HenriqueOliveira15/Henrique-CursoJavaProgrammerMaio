@@ -19,12 +19,13 @@ public class TelaCadastroCobra {
 		String segundoCampo2 = "Informe o CAF da Cobra";
 		String terceiroCampo2 = "Informe o TIPO DE VENENO da Cobra";
 		String quartoCampo2 = "Informe o PESO da Cobra";
+		String cep = "Digite o CEP";
 	
 		
 		JFrame frameTelaCadastroCobra = new JFrame();
 		GridLayout grid = new GridLayout(0, 1);
 		
-		frameTelaCadastroCobra.setSize(200, 200); 
+		frameTelaCadastroCobra.setSize(300, 300); 
 		JPanel painelTelaCadastroCobra = new JPanel();
 		
 		JLabel labelPrimeiroCampo = new JLabel (primeiroCampo2); 
@@ -52,6 +53,12 @@ public class TelaCadastroCobra {
 		JTextField caixaTextoQuartoCampo = new JTextField(10);
 		painelTelaCadastroCobra.add(caixaTextoQuartoCampo);
 		
+		JLabel jlabelCep = new JLabel(cep);
+		painelTelaCadastroCobra.add(jlabelCep);
+
+		JTextField caixaTextoCep = new JTextField(10);
+		painelTelaCadastroCobra.add(caixaTextoCep);
+		
 		
 		JButton botaoCadastrar = new JButton("Enviar"); 
 		painelTelaCadastroCobra.add(botaoCadastrar); 
@@ -63,7 +70,9 @@ public class TelaCadastroCobra {
 		frameTelaCadastroCobra.add(painelTelaCadastroCobra); 
 		frameTelaCadastroCobra.setVisible(true);
 		
-		TelaCadastroCobraControlador cadastroCobraControlador = new TelaCadastroCobraControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCobra, caixaTextoQuartoCampo);
+		TelaCadastroCobraControlador cadastroCobraControlador = new TelaCadastroCobraControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCobra, 
+				caixaTextoQuartoCampo, caixaTextoCep );
+		
 		botaoCadastrar.addActionListener(cadastroCobraControlador);
 		botaoVoltar.addActionListener(cadastroCobraControlador);
 	}

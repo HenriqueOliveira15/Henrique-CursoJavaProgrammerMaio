@@ -16,7 +16,7 @@ public class EntidadeService {
 		
 		if (entidadeValidacao.validapeso(peso) == null) {
 			JOptionPane.showMessageDialog(null, "O Valor " + peso + "Não é válido");
-		}else {
+			}else {
 			
 			return cachorro.calcularPreco(entidadeValidacao.validapeso(peso));
 		}
