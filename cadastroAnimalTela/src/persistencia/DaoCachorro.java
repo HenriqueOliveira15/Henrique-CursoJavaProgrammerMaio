@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import entidades.Cachorro;
+import entidades.Endereco;
 
 public class DaoCachorro {
 	
@@ -88,10 +89,19 @@ public class DaoCachorro {
 			
 			while (resultadoTabelaCachorro.next()) {
 				
+				Endereco endereco = new Endereco();
+				
 				Cachorro cachorro = new Cachorro();
 				cachorro.setNome(resultadoTabelaCachorro.getString("nome"));
 				cachorro.setCaf(resultadoTabelaCachorro.getString("caf"));
 				cachorro.setCorPelo(resultadoTabelaCachorro.getString("corpelo"));
+				endereco.setCep(resultadoTabelaCachorro.getString("Cep"));
+				endereco.setBairro(resultadoTabelaCachorro.getString("Bairro"));
+				endereco.setLocalidade(resultadoTabelaCachorro.getString("Localidade"));
+				endereco.setLogradouro(resultadoTabelaCachorro.getString("Logradouro"));
+				endereco.setUf(resultadoTabelaCachorro.getString("Uf"));
+				
+				cachorro.setEndereco(endereco);
 				
 				listacachorro.add(cachorro);
 			}

@@ -8,6 +8,7 @@ import java.util.List;
 
 import entidades.Cachorro;
 import entidades.Cobra;
+import entidades.Endereco;
 
 public class DaoCobra {
 
@@ -80,11 +81,20 @@ public class DaoCobra {
 			resultadoTabelaCobra = preparaComandoSQL.executeQuery();
 
 			while (resultadoTabelaCobra.next()) {
-
+				
+				Endereco endereco = new Endereco();
+				
 				Cobra cobra = new Cobra();
 				cobra.setNome(resultadoTabelaCobra.getString("nome"));
 				cobra.setCaf(resultadoTabelaCobra.getString("caf"));
-				cobra.setTipoVeneno(resultadoTabelaCobra.getString("tipoveneno"));
+				cobra.setTipoVeneno(resultadoTabelaCobra.getString("TipoVeneno"));
+				endereco.setCep(resultadoTabelaCobra.getString("Cep"));
+				endereco.setBairro(resultadoTabelaCobra.getString("Bairro"));
+				endereco.setLocalidade(resultadoTabelaCobra.getString("Localidade"));
+				endereco.setLogradouro(resultadoTabelaCobra.getString("Logradouro"));
+				endereco.setUf(resultadoTabelaCobra.getString("Uf"));
+				
+				cobra.setEndereco(endereco);
 
 				listacobra.add(cobra);
 			}

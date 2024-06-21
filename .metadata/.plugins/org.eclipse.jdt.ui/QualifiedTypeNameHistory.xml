@@ -29,4 +29,8 @@
     <fullyQualifiedTypeName name="persistencia.DaoCobra"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="telas.TelaMenuInicial"/>
+    <fullyQualifiedTypeName name="com.itextpdf.text.Font"/>
+    <fullyQualifiedTypeName name="com.itextpdf.text.Font.FontFamily"/>
+    <fullyQualifiedTypeName name="com.itextpdf.text.FontFactory"/>
+    <fullyQualifiedTypeName name="com.itextpdf.text.Phrase"/>
 </qualifiedTypeNameHistroy>
