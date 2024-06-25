@@ -15,16 +15,16 @@ import entidades.Correntista;
 
 public class TelaListarCorrentista {
 
-	public void listarCorrentista(List<Correntista> listacorrentistas) {
+	public void listarCorrentista(List<Correntista> listaCorrentistas) {
 
-		int quantidadeDeLinhas = listacorrentistas.size();
+		int quantidadeDeLinhas = listaCorrentistas.size();
 
 		String[][] tabelaString = new String[quantidadeDeLinhas][3];
 
 		int posicaoColuna = 0;
 		int posicaoLinha = 0;
 
-		for (Correntista correntista : listacorrentistas) {
+		for (Correntista correntista : listaCorrentistas) {
 
 			tabelaString[posicaoLinha][posicaoColuna] = correntista.getNome();
 			posicaoColuna++;

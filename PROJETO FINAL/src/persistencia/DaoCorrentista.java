@@ -46,7 +46,7 @@ public class DaoCorrentista {
 			System.out.println(e.getMessage());
 			System.out.println("Nao foi possivel registrar esse cachorro");
 			
-		}finally { // Esse é obrigatório
+		}finally { 
 			
 			try {
 				if(connectionBaseTeste != null) {
@@ -68,7 +68,7 @@ public class DaoCorrentista {
 	
 	public List<Correntista> retornaListaDeCorrentistas() {
 
-		String comandoSqlBuscarCorrentista = "select * from correntista";
+		String comandoSqlBuscarCorrentista = "SELECT * FROM correntista";
 		List<Correntista> listaCorrentista = new ArrayList<>(); 
 		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
 
@@ -99,8 +99,9 @@ public class DaoCorrentista {
 				endereco.setLogradouro(resultadoDaTabelaDoBanco.getString("logradouro"));
 				endereco.setLocalidade(resultadoDaTabelaDoBanco.getString("localidade"));
 				endereco.setUf(resultadoDaTabelaDoBanco.getString("uf"));
-				atendente.setEndereco(endereco);
-				listaAtendente.add(atendente); */
+				atendente.setEndereco(endereco);*/
+				
+				listaCorrentista.add(correntista); 
 			}
 
 		} catch (Exception e) {
@@ -121,6 +122,54 @@ public class DaoCorrentista {
 		}
 
 		return listaCorrentista;
+
+	}
+	
+	public boolean deletarCorrentista(String cpf) {
+
+		boolean deletar = false;
+
+		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
+		Connection connectionBaseExemplo = null; 
+		PreparedStatement preparaOcomandoSQL = null; 
+
+		String comandoSqlDelete = "delete from correntista where cpf = ?"; 
+
+		try {
+			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroCorrentista(); 
+			
+			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlDelete);
+																				
+																							
+			preparaOcomandoSQL.setString(1, cpf);
+
+			preparaOcomandoSQL.execute(); 
+
+			System.out.println("Correntista Deletado");
+
+			deletar = true; 
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(" Não foi possivel deletar");
+
+		} finally { 
+			try {
+				if (connectionBaseExemplo != null) {
+					connectionBaseExemplo.close();
+													
+				}
+				if (preparaOcomandoSQL != null) {
+					preparaOcomandoSQL.close();
+				}
+
+			} catch (Exception e2) {
+				System.out.println("Não foi possivel fechar a conexão!!");
+			}
+
+		}
+
+		return deletar;
 
 	}
 

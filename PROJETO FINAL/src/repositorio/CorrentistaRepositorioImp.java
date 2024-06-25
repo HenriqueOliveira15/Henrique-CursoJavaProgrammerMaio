@@ -30,8 +30,12 @@ public class CorrentistaRepositorioImp implements CorrentistaRepositorio {
 
 	@Override
 	public boolean excluirCorrentistaRepositorio(String cpf) {
-		// TODO Auto-generated method stub
-		return false;
+		DaoCorrentista telaCorrentista = new DaoCorrentista();
+		if(buscaCorrentistaPorCpf(cpf) != null){
+			return telaCorrentista.deletarCorrentista(cpf);
+		}else {
+			return false;
+		}
 	}
 
 	@Override

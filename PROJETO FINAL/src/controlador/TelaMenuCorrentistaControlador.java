@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import repositorio.CorrentistaRepositorioImp;
 import telas.TelaCadastroCorrentista;
+import telas.TelaDeletarCorrentista;
 import telas.TelaListarCorrentista;
 import telas.TelaMenuCorrentista;
 
@@ -27,6 +28,7 @@ public class TelaMenuCorrentistaControlador implements ActionListener {
 
 	TelaMenuCorrentista telaMenuCorrentista = new TelaMenuCorrentista();
 	TelaListarCorrentista telaListarCorrentista = new TelaListarCorrentista();
+	TelaDeletarCorrentista telaDeletarCorrentista = new TelaDeletarCorrentista();
 	
 	
 	//TelaListarCorrentista telaListarCorrentista = new TelaListarCorrentista();
@@ -57,13 +59,13 @@ public class TelaMenuCorrentistaControlador implements ActionListener {
 				frameTelaMenuCorrentista.setVisible(false);
 				break;
 
-			/* case "3":
-				telaDeletarCachorro.chamarTelaDeletarCachorro(cachorroRepositorio.listarCachorroRepositorio());
+			case "3":
+				telaDeletarCorrentista.deletarCorrentista(correntistaRepositorioImp.listarCorrentistaRepositorio());
 				System.out.println("Direcione para deletar cachorro");
-				frameTelaMenuCachorro.setVisible(false);
+				frameTelaMenuCorrentista.setVisible(false);
 				break;
 				
-			case "4": {
+			/* case "4": {
 				telaAlterarCachorro.chamarTelaAlterarCachorro(cachorroRepositorio.listarCachorroRepositorio());
 				System.out.println("Direcione para alterar cachorro");
 				frameTelaMenuCachorro.setVisible(false);

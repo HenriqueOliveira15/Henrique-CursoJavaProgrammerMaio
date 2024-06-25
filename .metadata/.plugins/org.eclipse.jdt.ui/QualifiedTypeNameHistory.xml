@@ -19,7 +19,6 @@
     <fullyQualifiedTypeName name="conectaBancoTeste.ConectarBancoTeste"/>
     <fullyQualifiedTypeName name="java.awt.GridLayout"/>
     <fullyQualifiedTypeName name="telas.TelaMenuCachorro"/>
-    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="persistencia.DaoCachorro"/>
@@ -33,4 +32,5 @@
     <fullyQualifiedTypeName name="com.itextpdf.text.Font.FontFamily"/>
     <fullyQualifiedTypeName name="com.itextpdf.text.FontFactory"/>
     <fullyQualifiedTypeName name="com.itextpdf.text.Phrase"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 </qualifiedTypeNameHistroy>
