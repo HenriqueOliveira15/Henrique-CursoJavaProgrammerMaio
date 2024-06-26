@@ -1,4 +1,4 @@
-package telas;
+package telas.TelasCorrentistaPadrao;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import controlador.TelaAlterarCorrentistaControlador;
+import controlador.ControladorCorrentistaPadrao.TelaAlterarCorrentistaControlador;
 import entidades.CorrentistaPadrao;
 
 public class TelaAlterarCorrentista {

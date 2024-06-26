@@ -1,75 +1,73 @@
-package controlador;
+package controlador.ControladorCorrentistaPremium;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-
 import cliente.EnderecoCorrentista;
-import entidades.Correntista;
-import entidades.CorrentistaPadrao;
-import repositorio.CorrentistaRepositorioImp;
-import telas.TelaMenuCorrentista;
+import entidades.CorrentistaPremium;
+import repositorio.CorrentistaPremiumRepositorioImp;
+import telas.TelasCorrentistaPremium.TelaMenuCorrentistaPremium;
 
-public class TelaCadastroCorrentistaControlador implements ActionListener {
-
+public class TelaCadastroCorrentistaPremiumControlador implements ActionListener{
+	
 	JTextField caixaTextoPrimeiroCampoRecebido;
 	JTextField caixaTextoSegundoCampoRecebido;
 	JTextField caixaTextoTerceiroCampoRecebido;
 	JTextField caixaTextoQuartoCampoRecebido;
 	JTextField caixaTextoQuintoCampoRecebido;
-	JFrame frameTelaCadastroCorrentista;
-
+	JFrame frameTelaCadastroCorrentistaPremium;
+	
 	EnderecoCorrentista enderecoCorrentista = new EnderecoCorrentista();
-	CorrentistaRepositorioImp correntistaRepositorioImp = new CorrentistaRepositorioImp();
-	TelaMenuCorrentista telaMenuCorrentista = new TelaMenuCorrentista();
-
-	public TelaCadastroCorrentistaControlador(JTextField caixaTextoPrimeiroCampoRecebido,
-			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido, JTextField caixaTextoQuartoCampoRecebido,
-			JFrame frameTelaCadastroCorrentista, JTextField caixaTextoQuintoCampoRecebido) {
+	TelaMenuCorrentistaPremium telaMenuCorrentistaPremium = new TelaMenuCorrentistaPremium();
+	CorrentistaPremiumRepositorioImp correntistaPremiumRepositorioImp = new CorrentistaPremiumRepositorioImp();
+	
+	public TelaCadastroCorrentistaPremiumControlador(JTextField caixaTextoPrimeiroCampoRecebido,
+			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido,
+			JTextField caixaTextoQuartoCampoRecebido, JFrame frameTelaCadastroCorrentistaPremium,
+			JTextField caixaTextoQuintoCampoRecebido) {
 		this.caixaTextoPrimeiroCampoRecebido = caixaTextoPrimeiroCampoRecebido;
 		this.caixaTextoSegundoCampoRecebido = caixaTextoSegundoCampoRecebido;
 		this.caixaTextoTerceiroCampoRecebido = caixaTextoTerceiroCampoRecebido;
 		this.caixaTextoQuartoCampoRecebido = caixaTextoQuartoCampoRecebido;
 		this.caixaTextoQuintoCampoRecebido = caixaTextoQuintoCampoRecebido;
-		this.frameTelaCadastroCorrentista = frameTelaCadastroCorrentista;
+		this.frameTelaCadastroCorrentistaPremium = frameTelaCadastroCorrentistaPremium;
 	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getActionCommand() == "Voltar") {
-			frameTelaCadastroCorrentista.setVisible(false);
-			telaMenuCorrentista.chamarTelaMenuCorrentista();
+			frameTelaCadastroCorrentistaPremium.setVisible(false);
+			telaMenuCorrentistaPremium.chamarTelaMenuCorrentistaPremium();
 		}
 		
-		CorrentistaPadrao correntistaConfirmacao = populaCorrentista();
+		CorrentistaPremium correntistaConfirmacao = populaCorrentista();
 		if(e.getActionCommand() == "Enviar") {
 		int confirmacao = JOptionPane.showConfirmDialog(null, "Confirme os dados:" +"\n"
 														+ correntistaConfirmacao.getNome()+"\n"
 														+correntistaConfirmacao.getCpf()+ "\n"
+														+correntistaConfirmacao.getEndereco().getCep()+ "\n"
 														+correntistaConfirmacao.getEmail()+ "\n"
-														+correntistaConfirmacao.getEndereco().getBairro()+ "\n"
 														+correntistaConfirmacao.getEndereco().getLocalidade()+ "\n"
 														+correntistaConfirmacao.getEndereco().getLogradouro()+ "\n"
 														+correntistaConfirmacao.getEndereco().getUf()+ "\n"
 														);
 		if (confirmacao == 0) {
 			registrarArquivo(correntistaConfirmacao);
-			frameTelaCadastroCorrentista.setVisible(false);
-			telaMenuCorrentista.chamarTelaMenuCorrentista();
+			frameTelaCadastroCorrentistaPremium.setVisible(false);
+			telaMenuCorrentistaPremium.chamarTelaMenuCorrentistaPremium();
 		}
 		
 	}
 		
 	}
 	
-	
+	 public void registrarArquivo(CorrentistaPremium correntistaConfirmacao) {
 
-	public void registrarArquivo(CorrentistaPadrao correntistaConfirmacao) {
-
-		if (correntistaRepositorioImp.salvarCorrentista(correntistaConfirmacao,
+		if (correntistaPremiumRepositorioImp.salvarCorrentista(correntistaConfirmacao,
 				caixaTextoQuintoCampoRecebido.getText())) {
 			JOptionPane.showMessageDialog(null, "Dados salvos com sucesso");
 		} else {
@@ -78,9 +76,9 @@ public class TelaCadastroCorrentistaControlador implements ActionListener {
 
 	}
 
-	public CorrentistaPadrao populaCorrentista() {
+	public CorrentistaPremium populaCorrentista() {
 
-		CorrentistaPadrao correntista = new CorrentistaPadrao();
+		CorrentistaPremium correntista = new CorrentistaPremium();
 
 		correntista.setNome(caixaTextoPrimeiroCampoRecebido.getText());
 		correntista.setCpf(caixaTextoSegundoCampoRecebido.getText());
@@ -89,7 +87,8 @@ public class TelaCadastroCorrentistaControlador implements ActionListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return correntista;
+			return correntista;
+		}
+
 	}
 
-}

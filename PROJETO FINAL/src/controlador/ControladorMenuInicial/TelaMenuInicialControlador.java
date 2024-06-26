@@ -1,4 +1,4 @@
-package controlador;
+package controlador.ControladorMenuInicial;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,7 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import telas.TelaMenuCorrentista;
+import telas.TelasCorrentistaPadrao.TelaMenuCorrentista;
+import telas.TelasCorrentistaPremium.TelaMenuCorrentistaPremium;
 
 public class TelaMenuInicialControlador implements ActionListener {
 	
@@ -30,14 +31,14 @@ public class TelaMenuInicialControlador implements ActionListener {
 			switch (opcao.getText()) {
 					case "1": 	
 						TelaMenuCorrentista.chamarTelaMenuCorrentista();
-						System.out.println("Direcione para a tela do correntista");
+						System.out.println("Direcione para a tela do Correntista Padrao");
 						frameTelaInicial.setVisible(false);
 						break;
 					
 					
 					case "2": 
-						TelaMenuCorrentista.chamarTelaMenuCorrentista();
-						System.out.println("Direcione para a tela da cobra");
+						TelaMenuCorrentistaPremium.chamarTelaMenuCorrentistaPremium();
+						System.out.println("Direcione para a tela do Correntista Premium");
 						frameTelaInicial.setVisible(false);
 						break;
 						

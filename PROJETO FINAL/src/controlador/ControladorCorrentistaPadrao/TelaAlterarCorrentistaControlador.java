@@ -1,4 +1,4 @@
-package controlador;
+package controlador.ControladorCorrentistaPadrao;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,8 +7,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import entidades.CorrentistaPadrao;
 import repositorio.CorrentistaRepositorioImp;
-import telas.TelaFormularioAlteraCorrentista;
-import telas.TelaMenuCorrentista;
+import telas.TelasCorrentistaPadrao.TelaFormularioAlteraCorrentista;
+import telas.TelasCorrentistaPadrao.TelaMenuCorrentista;
 
 public class TelaAlterarCorrentistaControlador implements ActionListener {
 

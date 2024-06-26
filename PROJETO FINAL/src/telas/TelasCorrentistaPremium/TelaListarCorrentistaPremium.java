@@ -1,6 +1,7 @@
-package telas;
+package telas.TelasCorrentistaPremium;
 
 import java.awt.Dimension;
+
 import java.util.List;
 
 import javax.swing.JButton;
@@ -9,14 +10,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import controlador.ControladorCorrentistaPremium.TelaListarCorrentistaPremiumControlador;
+import entidades.CorrentistaPremium;
 
-import controlador.TelaListarCorrentistaControlador;
-import entidades.Correntista;
-import entidades.CorrentistaPadrao;
+public class TelaListarCorrentistaPremium {
 
-public class TelaListarCorrentista {
-
-	public void listarCorrentista(List<CorrentistaPadrao> list) {
+	public void listarCorrentista(List<CorrentistaPremium> list) {
 
 		int quantidadeDeLinhas = list.size();
 
@@ -25,7 +24,7 @@ public class TelaListarCorrentista {
 		int posicaoColuna = 0;
 		int posicaoLinha = 0;
 
-		for (Correntista correntista : list) {
+		for (CorrentistaPremium correntista : list) {
 
 			tabelaString[posicaoLinha][posicaoColuna] = correntista.getNome();
 			posicaoColuna++;
@@ -51,7 +50,7 @@ public class TelaListarCorrentista {
 
 		JTable tabelaCorrentistas = new JTable(tabelaString, nomeColunas);
 		tabelaCorrentistas.setSize(1000, 1000);
-		tabelaCorrentistas.setBounds(30, 40, 300, 300);
+		tabelaCorrentistas.setBounds(70, 50, 300, 300);
 
 		JScrollPane scrollPainelListarCorrentistas = new JScrollPane(tabelaCorrentistas);
 		scrollPainelListarCorrentistas.setPreferredSize(new Dimension(400, 160));
@@ -65,7 +64,7 @@ public class TelaListarCorrentista {
 		JButton botaoMenu = new JButton("MENU");
 
 		JButton botaoGerarPdf = new JButton("Gerar PDF");
-		JTextField cafTextField = new JTextField(10);
+		JTextField cpfTextField = new JTextField(10);
 
 		painelListarCorrentista.add(botaoMenu);
 		painelListarCorrentista.add(botaoGerarPdf);
@@ -73,7 +72,7 @@ public class TelaListarCorrentista {
 		frameListarCorrentistas.add(painelListarCorrentista);
 		frameListarCorrentistas.setVisible(true);
 
-		TelaListarCorrentistaControlador correntistaControlador = new TelaListarCorrentistaControlador(cpf, frameListarCorrentistas);
+		TelaListarCorrentistaPremiumControlador correntistaControlador = new TelaListarCorrentistaPremiumControlador(cpf, frameListarCorrentistas);
 		botaoGerarPdf.addActionListener(correntistaControlador);
 		botaoMenu.addActionListener(correntistaControlador);
 

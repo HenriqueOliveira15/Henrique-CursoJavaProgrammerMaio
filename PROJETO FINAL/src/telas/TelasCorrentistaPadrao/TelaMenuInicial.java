@@ -1,4 +1,4 @@
-package telas;
+package telas.TelasCorrentistaPadrao;
 
 import java.awt.GridLayout;
 
@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controlador.TelaMenuInicialControlador;
+import controlador.ControladorMenuInicial.TelaMenuInicialControlador;
 
 public class TelaMenuInicial {
 	

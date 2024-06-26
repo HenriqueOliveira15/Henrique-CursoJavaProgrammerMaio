@@ -1,6 +1,7 @@
-package telas;
+package telas.TelasCorrentistaPadrao;
 
 import java.awt.Dimension;
+
 import java.util.List;
 
 import javax.swing.JButton;
@@ -9,9 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
-import controlador.TelaDeletarCorrentistaControlador;
-import controlador.TelaListarCorrentistaControlador;
+import controlador.ControladorCorrentistaPadrao.TelaDeletarCorrentistaControlador;
 import entidades.Correntista;
 import entidades.CorrentistaPadrao;
 

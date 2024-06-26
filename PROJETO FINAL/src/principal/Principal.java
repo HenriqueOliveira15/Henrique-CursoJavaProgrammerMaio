@@ -1,6 +1,6 @@
 package principal;
 
-import telas.TelaMenuInicial;
+import telas.TelasCorrentistaPadrao.TelaMenuInicial;
 
 public class Principal {
 

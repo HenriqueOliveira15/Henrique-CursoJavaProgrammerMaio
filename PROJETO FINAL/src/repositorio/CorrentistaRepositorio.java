@@ -1,8 +1,6 @@
 package repositorio;
 
 import java.util.List;
-
-import entidades.Correntista;
 import entidades.CorrentistaPadrao;
 
 public interface CorrentistaRepositorio {
