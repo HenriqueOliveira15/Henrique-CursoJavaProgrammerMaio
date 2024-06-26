@@ -10,21 +10,23 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import controlador.TelaDeletarCorrentistaControlador;
 import controlador.TelaListarCorrentistaControlador;
 import entidades.Correntista;
+import entidades.CorrentistaPadrao;
 
 public class TelaDeletarCorrentista  {
 	
-	public void deletarCorrentista(List<Correntista> listaCorrentistas) {
+	public void deletarCorrentista(List<CorrentistaPadrao> list) {
 
-			int quantidadeDeLinhas = listaCorrentistas.size();
+			int quantidadeDeLinhas = list.size();
 
-			String[][] tabelaString = new String[quantidadeDeLinhas][3];
+			String[][] tabelaString = new String[quantidadeDeLinhas][4];
 
 			int posicaoColuna = 0;
 			int posicaoLinha = 0;
 
-			for (Correntista correntista : listaCorrentistas) {
+			for (Correntista correntista : list) {
 
 				tabelaString[posicaoLinha][posicaoColuna] = correntista.getNome();
 				posicaoColuna++;
@@ -32,14 +34,17 @@ public class TelaDeletarCorrentista  {
 				tabelaString[posicaoLinha][posicaoColuna] = correntista.getCpf();
 
 				posicaoColuna++;
-				tabelaString[posicaoLinha][posicaoColuna] = correntista.getCep();
+				tabelaString[posicaoLinha][posicaoColuna] = correntista.getEndereco().getCep();
+				
+				posicaoColuna++;
+				tabelaString[posicaoLinha][posicaoColuna] = correntista.getEmail();
 
 				posicaoLinha++;
 				posicaoColuna = 0;
 
 			}
 
-			String nomeColunas[] = { "NOME", "CPF", "CEP" };
+			String nomeColunas[] = { "NOME", "CPF", "CEP", "Email" };
 
 			JFrame frameDeletarCorrentistas = new JFrame();
 
@@ -56,20 +61,19 @@ public class TelaDeletarCorrentista  {
 			painelDeletarCorrentista.setSize(1000, 1000);
 			painelDeletarCorrentista.add(scrollPainelListarCorrentistas);
 
-			JTextField cpf = new JTextField(10);
-			painelDeletarCorrentista.add(cpf);
+			JTextField cpfTextField = new JTextField(10);
+			painelDeletarCorrentista.add(cpfTextField);
 			JButton botaoMenu = new JButton("MENU");
 
 			JButton botaoDeletar = new JButton("DELETAR");
-			JTextField cafTextField = new JTextField(10);
-
+			
 			painelDeletarCorrentista.add(botaoMenu);
 			painelDeletarCorrentista.add(botaoDeletar);
 
 			frameDeletarCorrentistas.add(painelDeletarCorrentista);
 			frameDeletarCorrentistas.setVisible(true);
 
-			TelaListarCorrentistaControlador correntistaControlador = new TelaListarCorrentistaControlador(cpf, frameDeletarCorrentistas);
+			TelaDeletarCorrentistaControlador correntistaControlador = new TelaDeletarCorrentistaControlador(cpfTextField, frameDeletarCorrentistas);
 			botaoDeletar.addActionListener(correntistaControlador);
 			botaoMenu.addActionListener(correntistaControlador);
 

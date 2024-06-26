@@ -8,10 +8,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import repositorio.CorrentistaRepositorioImp;
+import telas.TelaAlterarCorrentista;
 import telas.TelaCadastroCorrentista;
 import telas.TelaDeletarCorrentista;
 import telas.TelaListarCorrentista;
 import telas.TelaMenuCorrentista;
+import telas.TelaMenuInicial;
 
 public class TelaMenuCorrentistaControlador implements ActionListener {
 	
@@ -29,18 +31,10 @@ public class TelaMenuCorrentistaControlador implements ActionListener {
 	TelaMenuCorrentista telaMenuCorrentista = new TelaMenuCorrentista();
 	TelaListarCorrentista telaListarCorrentista = new TelaListarCorrentista();
 	TelaDeletarCorrentista telaDeletarCorrentista = new TelaDeletarCorrentista();
-	
-	
-	//TelaListarCorrentista telaListarCorrentista = new TelaListarCorrentista();
-	//TelaDeletarCachorro telaDeletarCachorro = new TelaDeletarCachorro();
-	//TelaAlterarCachorro telaAlterarCachorro = new TelaAlterarCachorro();
-	//TelaMenuInicial telaMenuInicial = new TelaMenuInicial();
-	
+	TelaMenuInicial telaMenuInicial = new TelaMenuInicial();
+	TelaAlterarCorrentista telaAlterarCorrentista = new TelaAlterarCorrentista();
 	
 	CorrentistaRepositorioImp correntistaRepositorioImp = new CorrentistaRepositorioImp();
-	
-	
-	
 	
 
 	@Override
@@ -55,7 +49,7 @@ public class TelaMenuCorrentistaControlador implements ActionListener {
 
 			 case "2":
 				telaListarCorrentista.listarCorrentista(correntistaRepositorioImp.listarCorrentistaRepositorio());;
-				System.out.println("Listando os cachorros cadastrados");
+				System.out.println("Listando os correntistas");
 				frameTelaMenuCorrentista.setVisible(false);
 				break;
 
@@ -65,20 +59,20 @@ public class TelaMenuCorrentistaControlador implements ActionListener {
 				frameTelaMenuCorrentista.setVisible(false);
 				break;
 				
-			/* case "4": {
-				telaAlterarCachorro.chamarTelaAlterarCachorro(cachorroRepositorio.listarCachorroRepositorio());
-				System.out.println("Direcione para alterar cachorro");
-				frameTelaMenuCachorro.setVisible(false);
+			 case "4": {
+				telaAlterarCorrentista.alterarCorrentista(correntistaRepositorioImp.listarCorrentistaRepositorio());
+				System.out.println("Direcione para alterar correntista");
+				frameTelaMenuCorrentista.setVisible(false);
 				break;
 				}
 			
+			
 			case "5": {
-				telaMenuInicial.chamarTelaMenuIniciar();
-				System.out.println("Direcione para alterar cachorro");
-				frameTelaMenuCachorro.setVisible(false);
+				telaMenuInicial.chamarTelaMenuInicial();
+				System.out.println("Direcione para tela menu inicial");
+				frameTelaMenuCorrentista.setVisible(false);
 				break;
 				}
-				*/
 			
 			}
 			

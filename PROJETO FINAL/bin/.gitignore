@@ -1,4 +1,7 @@
 /persistencia/
-/repositorio/
-/telas/
 /controlador/
+/entidades/
+/telas/
+/servicos/
+/repositorio/
+/cliente/

@@ -1,14 +1,22 @@
 package entidades;
 
-public class Correntista {
+public abstract class Correntista {
 	
 	private String Nome;
 	private String Cpf;
-	private String Cep;
 	private Endereco endereco;
 	private Double QtdTransacao;
+	private String Email;
 	
 	
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 
 	public String getNome() {
 		return Nome;
@@ -22,13 +30,7 @@ public class Correntista {
 	public void setCpf(String cpf) {
 		Cpf = cpf;
 	}
-	public String getCep() {
-		return Cep;
-	}
-	public void setCep(String cep) {
-		Cep = cep;
-	}
-	
+
 	public Double getQtdTransacao() {
 		return QtdTransacao;
 	}
@@ -36,23 +38,17 @@ public class Correntista {
 		QtdTransacao = qtdTransacao;
 	}
 	
-	public Endereco getEndereco() {
-		return endereco;
+	public Double calcularAnuidade(double qtdTransacao) {
+		
+		return null;
 	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+
+	public String getEmail() {
+		return Email;
 	}
-	
-	
-	
-	public Double calcularAnuidade (double qtdTransacao) {
 
-		return qtdTransacao * 0.5;
-
+	public void setEmail(String email) {
+		Email = email;
 	}
 	
-	
-	
-	
-
 }

@@ -1,14 +1,14 @@
 package servicos;
 
 import javax.swing.JOptionPane;
-
-import entidades.Correntista;
+import entidades.CorrentistaPadrao;
 import validacao.EntidadeValidacao;
 
 public class EntidadeService {
 	
 	public Double buscarAnuidadeCorrentista(String qtdTransacao) {
-		Correntista correntista = new Correntista();
+		
+		CorrentistaPadrao correntista = new CorrentistaPadrao();
 		EntidadeValidacao entidadeValidacao = new EntidadeValidacao();
 		
 		if (entidadeValidacao.validaqtdTransacao(qtdTransacao)== null) {

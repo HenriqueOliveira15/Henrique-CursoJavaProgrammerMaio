@@ -3,17 +3,18 @@ package repositorio;
 import java.util.List;
 
 import entidades.Correntista;
+import entidades.CorrentistaPadrao;
 
 public interface CorrentistaRepositorio {
 
-	public boolean salvarCorrentista(Correntista correntista, String qtdTransacao);
+	public boolean salvarCorrentista(CorrentistaPadrao correntista, String qtdTransacao);
 
-	public List<Correntista> listarCorrentistaRepositorio();
+	public List<CorrentistaPadrao> listarCorrentistaRepositorio();
 
 	public boolean excluirCorrentistaRepositorio(String cpf);
 
-	public boolean alterarCorrentistaRepositorio(Correntista correntista);
+	public boolean alterarCorrentistaRepositorio(CorrentistaPadrao correntista, String cpf);
 
-	public Correntista buscaCorrentistaPorCpf(String cpf);
+	public CorrentistaPadrao buscaCorrentistaPorCpf(String cpf);
 
 }

@@ -2,13 +2,11 @@ package entidades;
 
 public class Endereco {
 	
-private String cep;
+	private String cep;
 	
 	private String localidade;
     
     private String logradouro;
-
-    private String complemento;
 
     private String bairro;
 
@@ -26,6 +24,10 @@ private String cep;
 		return cep;
 	}
 
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
 	public String getLocalidade() {
 		return localidade;
 	}
@@ -40,14 +42,6 @@ private String cep;
 
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
-	}
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
 	}
 
 	public String getBairro() {
@@ -98,9 +92,10 @@ private String cep;
 		this.siafi = siafi;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
+	
+    
+    
+    
+    
 
 }

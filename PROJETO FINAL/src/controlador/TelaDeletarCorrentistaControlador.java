@@ -16,14 +16,13 @@ public class TelaDeletarCorrentistaControlador implements ActionListener {
 	JFrame frameDeletarCorrentistas;
 	JTextField cpf;
 	
-	public TelaDeletarCorrentistaControlador(JFrame frameDeletarCorrentistas, JTextField cpf) {
+	public TelaDeletarCorrentistaControlador(JTextField cpf, JFrame frameDeletarCorrentistas) {
 		this.frameDeletarCorrentistas = frameDeletarCorrentistas;
 		this.cpf = cpf;
 	}
 
 	
 	CorrentistaRepositorioImp correntistaRepositorioImp = new CorrentistaRepositorioImp();
-	
 	TelaMenuCorrentista telaMenuCorrentista = new TelaMenuCorrentista();
 
 
@@ -32,7 +31,7 @@ public class TelaDeletarCorrentistaControlador implements ActionListener {
 		
 		if (e.getActionCommand().equals("DELETAR")) {
 			if(correntistaRepositorioImp.excluirCorrentistaRepositorio(cpf.getText())) {
-				JOptionPane.showMessageDialog(null, "Atendente Deletado!!");
+				JOptionPane.showMessageDialog(null, "Correntista Deletado!!");
 				frameDeletarCorrentistas.setVisible(false);
 				telaMenuCorrentista.chamarTelaMenuCorrentista();
 			}

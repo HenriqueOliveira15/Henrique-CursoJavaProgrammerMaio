@@ -47,6 +47,12 @@ public static void chamartelaCadastroCorrentista(){
 		painelTelaCadastroCorrentista.add(caixaTextoTerceiroCampo);
 		painelTelaCadastroCorrentista.setLayout(grid);
 		
+		JLabel labelQuartoCampo = new JLabel(emailText);
+		painelTelaCadastroCorrentista.add(labelQuartoCampo);
+		
+		JTextField caixaTextoQuartoCampo = new JTextField(10);
+		painelTelaCadastroCorrentista.add(caixaTextoQuartoCampo);
+
 		JLabel labelQuintoCampo = new JLabel(qtdTransacaoText);
 		painelTelaCadastroCorrentista.add(labelQuintoCampo);
 
@@ -62,7 +68,7 @@ public static void chamartelaCadastroCorrentista(){
 		frameTelaCadastroCorrentista.add(painelTelaCadastroCorrentista); 
 		frameTelaCadastroCorrentista.setVisible(true); 
 		
-		TelaCadastroCorrentistaControlador cadastroCorrentistaControlador = new TelaCadastroCorrentistaControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo, frameTelaCadastroCorrentista, caixaTextoQuintoCampo);
+		TelaCadastroCorrentistaControlador cadastroCorrentistaControlador = new TelaCadastroCorrentistaControlador(caixaTextoPrimeiroCampo, caixaTextoSegundoCampo, caixaTextoTerceiroCampo,caixaTextoQuartoCampo, frameTelaCadastroCorrentista, caixaTextoQuintoCampo);
 		botaoCadastrar.addActionListener(cadastroCorrentistaControlador);
 		botaoVoltar.addActionListener(cadastroCorrentistaControlador);
 		

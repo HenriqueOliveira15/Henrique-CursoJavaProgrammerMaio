@@ -33,4 +33,6 @@
     <fullyQualifiedTypeName name="com.itextpdf.text.FontFactory"/>
     <fullyQualifiedTypeName name="com.itextpdf.text.Phrase"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="telas.TelaMenuCorrentista"/>
+    <fullyQualifiedTypeName name="controlador.TelaAlterarCorrentistaControlador"/>
 </qualifiedTypeNameHistroy>

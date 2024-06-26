@@ -13,11 +13,11 @@ import telas.TelaMenuCorrentista;
 public class TelaListarCorrentistaControlador implements ActionListener {
 	
 	
-JTextField jTextFieldcpf;
+JTextField cpfTextField;
 JFrame frameListarCorrentistas;
 
 	public TelaListarCorrentistaControlador(JTextField jTextFieldcpf,JFrame frameListarCorrentistas ) {
-		this.jTextFieldcpf = jTextFieldcpf;
+		this.cpfTextField = cpfTextField;
 		this.frameListarCorrentistas = frameListarCorrentistas;
 	}
 

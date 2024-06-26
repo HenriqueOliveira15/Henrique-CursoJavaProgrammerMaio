@@ -5,7 +5,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import cliente.EnderecoCorrentista;
 import entidades.Correntista;
+import entidades.CorrentistaPadrao;
 import repositorio.CorrentistaRepositorioImp;
 import telas.TelaMenuCorrentista;
 
@@ -18,12 +21,12 @@ public class TelaCadastroCorrentistaControlador implements ActionListener {
 	JTextField caixaTextoQuintoCampoRecebido;
 	JFrame frameTelaCadastroCorrentista;
 
+	EnderecoCorrentista enderecoCorrentista = new EnderecoCorrentista();
 	CorrentistaRepositorioImp correntistaRepositorioImp = new CorrentistaRepositorioImp();
-
 	TelaMenuCorrentista telaMenuCorrentista = new TelaMenuCorrentista();
 
 	public TelaCadastroCorrentistaControlador(JTextField caixaTextoPrimeiroCampoRecebido,
-			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido,
+			JTextField caixaTextoSegundoCampoRecebido, JTextField caixaTextoTerceiroCampoRecebido, JTextField caixaTextoQuartoCampoRecebido,
 			JFrame frameTelaCadastroCorrentista, JTextField caixaTextoQuintoCampoRecebido) {
 		this.caixaTextoPrimeiroCampoRecebido = caixaTextoPrimeiroCampoRecebido;
 		this.caixaTextoSegundoCampoRecebido = caixaTextoSegundoCampoRecebido;
@@ -35,40 +38,38 @@ public class TelaCadastroCorrentistaControlador implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
-		Correntista correntistaConfirmacao = populaCorrentista();
-		int confirmacao = JOptionPane.showConfirmDialog(null,
-				"Confirme os dados:" + "\n" + correntistaConfirmacao.getNome() + "\n" + correntistaConfirmacao.getCpf()
-						+ "\n"
-		// + correntistaConfirmacao.getEndereco().getLocalidade()+ "\n"
-		// + correntistaConfirmacao.getEndereco().getLogradouro()+ "\n"
-		// + correntistaConfirmacao.getEndereco().getUf()+ "\n"
-		);
-
+		
+		if(e.getActionCommand() == "Voltar") {
+			frameTelaCadastroCorrentista.setVisible(false);
+			telaMenuCorrentista.chamarTelaMenuCorrentista();
+		}
+		
+		CorrentistaPadrao correntistaConfirmacao = populaCorrentista();
+		if(e.getActionCommand() == "Enviar") {
+		int confirmacao = JOptionPane.showConfirmDialog(null, "Confirme os dados:" +"\n"
+														+ correntistaConfirmacao.getNome()+"\n"
+														+correntistaConfirmacao.getCpf()+ "\n"
+														+correntistaConfirmacao.getEmail()+ "\n"
+														+correntistaConfirmacao.getEndereco().getBairro()+ "\n"
+														+correntistaConfirmacao.getEndereco().getLocalidade()+ "\n"
+														+correntistaConfirmacao.getEndereco().getLogradouro()+ "\n"
+														+correntistaConfirmacao.getEndereco().getUf()+ "\n"
+														);
 		if (confirmacao == 0) {
 			registrarArquivo(correntistaConfirmacao);
-
-			System.out.println("O NOME do correntista: " + caixaTextoPrimeiroCampoRecebido.getText());
-
-			System.out.println("O CPF do correntista: " + caixaTextoSegundoCampoRecebido.getText());
-
-			System.out.println("O Cep do correntista: " + caixaTextoTerceiroCampoRecebido.getText());
-
 			frameTelaCadastroCorrentista.setVisible(false);
-
-		}
-
-		if (e.getActionCommand().equals("Voltar")) {
-			System.out.println("Voltar para o menu");
 			telaMenuCorrentista.chamarTelaMenuCorrentista();
-			frameTelaCadastroCorrentista.setVisible(false);
 		}
-
+		
 	}
+		
+	}
+	
+	
 
-	public void registrarArquivo(Correntista correnstistaConfirmacao) {
+	public void registrarArquivo(CorrentistaPadrao correntistaConfirmacao) {
 
-		if (correntistaRepositorioImp.salvarCorrentista(correnstistaConfirmacao,
+		if (correntistaRepositorioImp.salvarCorrentista(correntistaConfirmacao,
 				caixaTextoQuintoCampoRecebido.getText())) {
 			JOptionPane.showMessageDialog(null, "Dados salvos com sucesso");
 		} else {
@@ -77,14 +78,14 @@ public class TelaCadastroCorrentistaControlador implements ActionListener {
 
 	}
 
-	public Correntista populaCorrentista() {
+	public CorrentistaPadrao populaCorrentista() {
 
-		Correntista correntista = new Correntista();
+		CorrentistaPadrao correntista = new CorrentistaPadrao();
 
 		correntista.setNome(caixaTextoPrimeiroCampoRecebido.getText());
 		correntista.setCpf(caixaTextoSegundoCampoRecebido.getText());
 		try {
-			correntista.setEndereco(null);
+			correntista.setEndereco(enderecoCorrentista.buscarEnderecoPeloCep(caixaTextoTerceiroCampoRecebido.getText()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -6,11 +6,14 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import entidades.CorrentistaPadrao;
 import entidades.Correntista;
+import entidades.Endereco;
 
-public class DaoCorrentista {
+public class DaoCorrentistaPadrao {
 	
-	public boolean salvarCorrentista(Correntista correntista) {
+	public boolean salvarCorrentista(CorrentistaPadrao correntista) {
+		
 		boolean salvamento = false;
 		
 		FabricaConexao conexaoConectarBancoTeste = new FabricaConexao();
@@ -22,14 +25,16 @@ public class DaoCorrentista {
 	
 		
 		try {
+			
 			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroCorrentista();
 			
 			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlInsert);	
 			
 			preparaComandoSQL.setString(1, correntista.getNome());
 			preparaComandoSQL.setString(2, correntista.getCpf());
-			preparaComandoSQL.setString(3, correntista.getCep()); 
+			preparaComandoSQL.setString(3, correntista.getEndereco().getCep()); 
 			preparaComandoSQL.setString(4, correntista.getQtdTransacao().toString());
+			
 			//preparaComandoSQL.setString(5, correntista.getEndereco().getCep());
 			//preparaComandoSQL.setString(6, correntista.getEndereco().getLocalidade());
 			//preparaComandoSQL.setString(7, correntista.getEndereco().getLogradouro());
@@ -44,7 +49,7 @@ public class DaoCorrentista {
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			System.out.println("Nao foi possivel registrar esse cachorro");
+			System.out.println("Nao foi possivel registrar esse correntista");
 			
 		}finally { 
 			
@@ -66,10 +71,10 @@ public class DaoCorrentista {
 		return salvamento;
 	}
 	
-	public List<Correntista> retornaListaDeCorrentistas() {
+	public List<CorrentistaPadrao> retornaListaDeCorrentistas() {
 
 		String comandoSqlBuscarCorrentista = "SELECT * FROM correntista";
-		List<Correntista> listaCorrentista = new ArrayList<>(); 
+		List<CorrentistaPadrao> listaCorrentista = new ArrayList<>(); 
 		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
 
 		Connection connectionBaseExemplo = null;
@@ -84,14 +89,14 @@ public class DaoCorrentista {
 			resultadoDaTabelaDoBanco = preparaOcomandoSQL.executeQuery();
 
 			while (resultadoDaTabelaDoBanco.next()) {
-				Correntista correntista = new Correntista();
 				
-				//Endereco endereco = new Endereco();
+				CorrentistaPadrao correntista = new CorrentistaPadrao();
+				
+				Endereco endereco = new Endereco();
 
 				correntista.setNome(resultadoDaTabelaDoBanco.getString("nome"));
 				correntista.setCpf(resultadoDaTabelaDoBanco.getString("cpf"));
-				correntista.setCep(resultadoDaTabelaDoBanco.getString("cep"));
-				//correntista.setSalario(Double.parseDouble(resultadoDaTabelaDoBanco.getString("salario")));
+				endereco.setCep(resultadoDaTabelaDoBanco.getString("cep"));;
 			
 				/*
 				endereco.setCep(resultadoDaTabelaDoBanco.getString("cep"));
@@ -99,7 +104,9 @@ public class DaoCorrentista {
 				endereco.setLogradouro(resultadoDaTabelaDoBanco.getString("logradouro"));
 				endereco.setLocalidade(resultadoDaTabelaDoBanco.getString("localidade"));
 				endereco.setUf(resultadoDaTabelaDoBanco.getString("uf"));
-				atendente.setEndereco(endereco);*/
+				*/
+				
+				correntista.setEndereco(endereco);
 				
 				listaCorrentista.add(correntista); 
 			}
@@ -133,7 +140,7 @@ public class DaoCorrentista {
 		Connection connectionBaseExemplo = null; 
 		PreparedStatement preparaOcomandoSQL = null; 
 
-		String comandoSqlDelete = "delete from correntista where cpf = ?"; 
+		String comandoSqlDelete = "DELETE FROM correntista WHERE cpf = ?;"; 
 
 		try {
 			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroCorrentista(); 
@@ -172,6 +179,57 @@ public class DaoCorrentista {
 		return deletar;
 
 	}
+	
+	public boolean alterarCorrentista(CorrentistaPadrao correntista) {
+
+		boolean alterar = false;
+
+		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
+		Connection connectionBaseExemplo = null; 
+		PreparedStatement preparaOcomandoSQL = null; 
+
+		String comandoSqlDelete = "UPDATE correntista SET nome = ?, cep = ? WHERE cpf = ?;"; //Exemplo CEP = 00000-000 , CPF = 000.000.000-00 
+		
+		try {
+			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroCorrentista(); 
+			
+			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlDelete);
+													
+			preparaOcomandoSQL.setString(1, correntista.getNome());																			
+			preparaOcomandoSQL.setString(2, correntista.getCpf());
+			preparaOcomandoSQL.setString(3, correntista.getEndereco().getCep());
+
+			preparaOcomandoSQL.execute(); 
+
+			System.out.println("Correntista Alterado");
+
+			alterar = true; 
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.out.println(" Não foi possivel alterar");
+
+		} finally { 
+			try {
+				if (connectionBaseExemplo != null) {
+					connectionBaseExemplo.close();
+													
+				}
+				if (preparaOcomandoSQL != null) {
+					preparaOcomandoSQL.close();
+				}
+
+			} catch (Exception e2) {
+				System.out.println("Não foi possivel fechar a conexão!!");
+			}
+
+		}
+
+		return alterar;
+
+	}
+	
+	
 
 
 }
