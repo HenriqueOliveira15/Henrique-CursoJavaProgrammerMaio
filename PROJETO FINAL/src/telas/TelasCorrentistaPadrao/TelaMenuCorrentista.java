@@ -30,10 +30,10 @@ public static void chamarTelaMenuCorrentista() {
 		JLabel labelOpcaoDeletarCorrentista = new JLabel(" 3 - DELETAR CORRENTISTA");
 		TelaMenuCorrentista.add(labelOpcaoDeletarCorrentista);
 		
-		JLabel labelOpcaoAlterarCorrentista = new JLabel("4 - ALTERAR CORRENTISTA");
+		JLabel labelOpcaoAlterarCorrentista = new JLabel(" 4 - ALTERAR CORRENTISTA");
 		TelaMenuCorrentista.add(labelOpcaoAlterarCorrentista);
 		
-		JLabel labelOpcaoVoltar = new JLabel("5 - VOLTAR PARA O MENU");
+		JLabel labelOpcaoVoltar = new JLabel(" 5 - VOLTAR PARA O MENU");
 		TelaMenuCorrentista.add(labelOpcaoVoltar);
 
 		JTextField opcaoTexto = new JTextField(10);

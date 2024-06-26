@@ -55,7 +55,7 @@ public class TelaMenuCorrentistaControlador implements ActionListener {
 
 			case "3":
 				telaDeletarCorrentista.deletarCorrentista(correntistaRepositorioImp.listarCorrentistaRepositorio());
-				System.out.println("Direcione para deletar cachorro");
+				System.out.println("Direcione para deletar correntista");
 				frameTelaMenuCorrentista.setVisible(false);
 				break;
 				
