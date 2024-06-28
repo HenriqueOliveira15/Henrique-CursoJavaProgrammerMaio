@@ -21,7 +21,7 @@ public class DaoCorrentistaPremium {
 		PreparedStatement preparaComandoSQL = null;
 		
 		
-		String comandoSqlInsert = "insert into correntistaPremium (nome, cpf, cep, qtdTransacoes, email) values (?, ?, ?, ?, ?)";
+		String comandoSqlInsert = "insert into correntistaPremium (nome, cpf, cep, email, qtdTransacoes, localidade, logradouro, bairro, uf) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	
 		
 		try {
@@ -33,14 +33,12 @@ public class DaoCorrentistaPremium {
 			preparaComandoSQL.setString(1, correntista.getNome());
 			preparaComandoSQL.setString(2, correntista.getCpf());
 			preparaComandoSQL.setString(3, correntista.getEndereco().getCep()); 
-			preparaComandoSQL.setString(4, correntista.getQtdTransacao().toString());
-			preparaComandoSQL.setString(5, correntista.getEmail());
-			
-			//preparaComandoSQL.setString(5, correntista.getEndereco().getCep());
-			//preparaComandoSQL.setString(6, correntista.getEndereco().getLocalidade());
-			//preparaComandoSQL.setString(7, correntista.getEndereco().getLogradouro());
-			//preparaComandoSQL.setString(8, correntista.getEndereco().getBairro());
-			//preparaComandoSQL.setString(9, correntista.getEndereco().getUf());
+			preparaComandoSQL.setString(4, correntista.getEmail());
+			preparaComandoSQL.setString(5, correntista.getQtdTransacao().toString());
+			preparaComandoSQL.setString(6, correntista.getEndereco().getLocalidade());
+			preparaComandoSQL.setString(7, correntista.getEndereco().getLogradouro());
+			preparaComandoSQL.setString(8, correntista.getEndereco().getBairro());
+			preparaComandoSQL.setString(9, correntista.getEndereco().getUf());
 			
 			preparaComandoSQL.execute();
 		
@@ -99,14 +97,12 @@ public class DaoCorrentistaPremium {
 				correntista.setCpf(resultadoDaTabelaDoBanco.getString("cpf"));
 				endereco.setCep(resultadoDaTabelaDoBanco.getString("cep"));;
 				correntista.setEmail(resultadoDaTabelaDoBanco.getString("email"));
-			
-				/*
 				endereco.setCep(resultadoDaTabelaDoBanco.getString("cep"));
 				endereco.setBairro(resultadoDaTabelaDoBanco.getString("bairro"));
 				endereco.setLogradouro(resultadoDaTabelaDoBanco.getString("logradouro"));
 				endereco.setLocalidade(resultadoDaTabelaDoBanco.getString("localidade"));
 				endereco.setUf(resultadoDaTabelaDoBanco.getString("uf"));
-				*/
+		
 				
 				correntista.setEndereco(endereco);
 				

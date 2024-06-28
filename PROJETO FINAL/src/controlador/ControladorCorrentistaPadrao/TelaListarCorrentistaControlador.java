@@ -2,10 +2,9 @@ package controlador.ControladorCorrentistaPadrao;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-import entidades.Correntista;
+import entidades.CorrentistaPadrao;
 import repositorio.CorrentistaRepositorioImp;
 import servicos.EntidadeService;
 import telas.TelasCorrentistaPadrao.TelaMenuCorrentista;
@@ -16,7 +15,7 @@ public class TelaListarCorrentistaControlador implements ActionListener {
 JTextField cpfTextField;
 JFrame frameListarCorrentistas;
 
-	public TelaListarCorrentistaControlador(JTextField jTextFieldcpf,JFrame frameListarCorrentistas ) {
+	public TelaListarCorrentistaControlador(JTextField cpfTextField,JFrame frameListarCorrentistas ) {
 		this.cpfTextField = cpfTextField;
 		this.frameListarCorrentistas = frameListarCorrentistas;
 	}
@@ -31,16 +30,11 @@ JFrame frameListarCorrentistas;
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		if(e.getActionCommand() == "MENU") {
-			frameListarCorrentistas.setVisible(false);
-			telaMenuCorrentista.chamarTelaMenuCorrentista();
-		}
-		
-		//if(e.getActionCommand() == "DETALHAR") {
-			//entidadeService.gerarPdfDetalharA(atendenteRepositorioImplemetacao.buscaAtendentePorCpf(cpf.getText()));
-		}
-		
+		CorrentistaPadrao correntista = correntistaRepositorioImp.buscaCorrentistaPorCpf(cpfTextField.getText());
+		entidadeService.gerarPdfDetalharCorrentistaPadrao(correntista);
+		System.out.println("PDF gerado");
 	}
+}
+	
 
 

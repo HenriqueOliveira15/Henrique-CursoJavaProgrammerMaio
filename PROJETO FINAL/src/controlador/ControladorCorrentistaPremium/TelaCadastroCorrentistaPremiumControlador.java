@@ -82,6 +82,7 @@ public class TelaCadastroCorrentistaPremiumControlador implements ActionListener
 
 		correntista.setNome(caixaTextoPrimeiroCampoRecebido.getText());
 		correntista.setCpf(caixaTextoSegundoCampoRecebido.getText());
+		correntista.setEmail(caixaTextoQuartoCampoRecebido.getText());
 		try {
 			correntista.setEndereco(enderecoCorrentista.buscarEnderecoPeloCep(caixaTextoTerceiroCampoRecebido.getText()));
 		} catch (Exception e) {

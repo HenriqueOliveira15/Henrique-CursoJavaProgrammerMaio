@@ -1,8 +1,3 @@
-/persistencia/
-/controlador/
-/entidades/
-/telas/
 /servicos/
-/repositorio/
-/cliente/
-/principal/
+/controlador/
+/persistencia/
