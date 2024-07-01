@@ -48,9 +48,9 @@ public class EntidadeService {
 	}
 
 	public static void gerarPdfDetalharCorrentistaPadrao(CorrentistaPadrao correntista) {
-		
+
 		String caminhoArquivo = "D:\\CursoJavaProgrammerMaio\\Henrique-CursoJavaProgrammerMaio\\relatorios\\correntistaPadrao.pdf";
-		
+
 		Document document = new Document();
 
 		try {
@@ -76,6 +76,9 @@ public class EntidadeService {
 
 				table.addCell("Nome");
 				table.addCell(correntista.getNome());
+
+				table.addCell("Email");
+				table.addCell(correntista.getEmail());
 
 				table.addCell("Cep");
 				table.addCell(correntista.getEndereco().getCep());
@@ -115,11 +118,11 @@ public class EntidadeService {
 		}
 
 	}
-	
-public static void gerarPdfDetalharCorrentistaPremium(CorrentistaPremium correntista) {
-		
+
+	public static void gerarPdfDetalharCorrentistaPremium(CorrentistaPremium correntista) {
+
 		String caminhoArquivo = "D:\\CursoJavaProgrammerMaio\\Henrique-CursoJavaProgrammerMaio\\relatorios\\correntistaPremium.pdf";
-		
+
 		Document document = new Document();
 
 		try {
@@ -129,7 +132,7 @@ public static void gerarPdfDetalharCorrentistaPremium(CorrentistaPremium corrent
 			document.open();
 			document.add(new Paragraph("Empresa: IMPACTA", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 14)));
 
-			document.add(new Paragraph("Relatorio de Detalhe do Correntista Padrao",
+			document.add(new Paragraph("Relatorio de Detalhe do Correntista Premium",
 					FontFactory.getFont(FontFactory.HELVETICA_BOLD, 14)));
 
 			document.add(new Paragraph(" "));
@@ -145,6 +148,9 @@ public static void gerarPdfDetalharCorrentistaPremium(CorrentistaPremium corrent
 
 				table.addCell("Nome");
 				table.addCell(correntista.getNome());
+
+				table.addCell("Email");
+				table.addCell(correntista.getEmail());
 
 				table.addCell("Cep");
 				table.addCell(correntista.getEndereco().getCep());

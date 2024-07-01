@@ -7,9 +7,18 @@ public abstract class Correntista {
 	private Endereco endereco;
 	private Double QtdTransacao;
 	private String Email;
+	private Double ValorAnuidade;
 	
+
 	
-	
+	public Double getValorAnuidade() {
+		return ValorAnuidade;
+	}
+
+	public void setValorAnuidade(Double valorAnuidade) {
+		ValorAnuidade = valorAnuidade;
+	}
+
 	public Endereco getEndereco() {
 		return endereco;
 	}
@@ -38,11 +47,6 @@ public abstract class Correntista {
 		QtdTransacao = qtdTransacao;
 	}
 	
-	public Double calcularAnuidade(double qtdTransacao) {
-		
-		return null;
-	}
-
 	public String getEmail() {
 		return Email;
 	}
@@ -51,4 +55,9 @@ public abstract class Correntista {
 		Email = email;
 	}
 	
+	public Double calcularAnuidade (double qtdTransacao) {
+
+		return qtdTransacao * 0.5;
+
+	}
 }

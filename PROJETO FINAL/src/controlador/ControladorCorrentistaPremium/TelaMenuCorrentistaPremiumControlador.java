@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import repositorio.CorrentistaPremiumRepositorioImp;
 import telas.TelasCorrentistaPadrao.TelaCadastroCorrentista;
 import telas.TelasCorrentistaPadrao.TelaMenuInicial;
+import telas.TelasCorrentistaPremium.TelaAlterarCorrentistaPremium;
 import telas.TelasCorrentistaPremium.TelaCadastroCorrentistaPremium;
 import telas.TelasCorrentistaPremium.TelaDeletarCorrentistaPremium;
 import telas.TelasCorrentistaPremium.TelaListarCorrentistaPremium;
@@ -30,6 +31,7 @@ public class TelaMenuCorrentistaPremiumControlador implements ActionListener {
 	TelaListarCorrentistaPremium telaListarCorrentistaPremium = new TelaListarCorrentistaPremium();
 	CorrentistaPremiumRepositorioImp correntistaPremiumRepositorioImp = new CorrentistaPremiumRepositorioImp();
 	TelaDeletarCorrentistaPremium telaDeletarCorrentistaPremium = new TelaDeletarCorrentistaPremium();
+	TelaAlterarCorrentistaPremium telaAlterarCorrentistaPremium = new TelaAlterarCorrentistaPremium();
 	
 
 	@Override
@@ -55,24 +57,24 @@ public class TelaMenuCorrentistaPremiumControlador implements ActionListener {
 				System.out.println("Direcione para deletar Correntista");
 				frameTelaMenuCorrentistaPremium.setVisible(false);
 				break;
+				
+			 case "4": 
+					 telaAlterarCorrentistaPremium.alterarCorrentistaPremium(correntistaPremiumRepositorioImp.listarCorrentistaPremiumRepositorio());
+					 System.out.println("Direcione para alterar correntista");
+					 frameTelaMenuCorrentistaPremium.setVisible(false); 
+					 break;
+					 
+			 case "5": {
+					telaMenuInicial.chamarTelaMenuInicial();
+					System.out.println("Direcione para tela menu inicial");
+					frameTelaMenuCorrentistaPremium.setVisible(false);
+					break;
+					}
 			}
-		}
-	}
+		} else {
+			JOptionPane.showMessageDialog(null, "Opção inválida");
+			}
 }
-/*
- 
- * case "4": {
- * telaAlterarCorrentista.alterarCorrentista(correntistaRepositorioImp.
- * listarCorrentistaRepositorio());
- * System.out.println("Direcione para alterar correntista");
- * frameTelaMenuCorrentista.setVisible(false); break; }
- * 
- * 
- * case "5": { telaMenuInicial.chamarTelaMenuInicial();
- * System.out.println("Direcione para tela menu inicial");
- * frameTelaMenuCorrentista.setVisible(false); break; }
- * 
- * }
- * 
- * } else { JOptionPane.showMessageDialog(null, "Opção inválida"); }
- */
+}
+
+

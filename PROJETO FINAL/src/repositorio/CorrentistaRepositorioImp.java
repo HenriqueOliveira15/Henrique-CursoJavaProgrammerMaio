@@ -40,14 +40,10 @@ public class CorrentistaRepositorioImp implements CorrentistaRepositorio {
 	}
 
 	@Override
-	public boolean alterarCorrentistaRepositorio(CorrentistaPadrao correntista, String cpf) {
-		DaoCorrentistaPadrao telaCorrentista = new DaoCorrentistaPadrao();
-		if(buscaCorrentistaPorCpf(cpf) != null){
-			return telaCorrentista.alterarCorrentista(buscaCorrentistaPorCpf(cpf));
-		}else {
-			return false;
+	public boolean alterarCorrentistaRepositorio(CorrentistaPadrao correntista) {
+		DaoCorrentistaPadrao daoCorrentistaPadrao = new DaoCorrentistaPadrao();
+			return daoCorrentistaPadrao.alterarCorrentista(correntista);
 		}
-	}
 
 	@Override
 	public CorrentistaPadrao buscaCorrentistaPorCpf(String cpf) {

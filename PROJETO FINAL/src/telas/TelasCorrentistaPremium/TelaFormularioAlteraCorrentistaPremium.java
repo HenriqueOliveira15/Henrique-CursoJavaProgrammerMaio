@@ -1,4 +1,4 @@
-package telas.TelasCorrentistaPadrao;
+package telas.TelasCorrentistaPremium;
 
 import java.awt.GridLayout;
 
@@ -8,12 +8,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controlador.ControladorCorrentistaPadrao.TelaFormularioAlteraCorrentistaControlador;
-import entidades.CorrentistaPadrao;
+import controlador.ControladorCorrentistaPremium.TelaFormularioAlteraCorrentistaPremiumControlador;
+import entidades.CorrentistaPremium;
 
-public class TelaFormularioAlteraCorrentista {
+
+public class TelaFormularioAlteraCorrentistaPremium {
 	
-	public void chamarTelaCadastroCorrentista(CorrentistaPadrao correntista) {
+	public void chamarTelaCadastroCorrentista(CorrentistaPremium correntista) {
 
 		GridLayout grid = new GridLayout(0, 1);
 		String primeiroCampo = "Digite o NOME do Correntista";
@@ -50,7 +51,7 @@ public class TelaFormularioAlteraCorrentista {
 		frameTelaCadastroCorrentista.add(panelTelaCadastroCorrentista);
 		frameTelaCadastroCorrentista.setVisible(true);
 		
-		TelaFormularioAlteraCorrentistaControlador alteraCorrentistaControlador = new TelaFormularioAlteraCorrentistaControlador(frameTelaCadastroCorrentista, caixaTextoPrimeiroCampo, caixaTextoPrimeiroCampo, terceiroCampo);
+		TelaFormularioAlteraCorrentistaPremiumControlador alteraCorrentistaControlador = new TelaFormularioAlteraCorrentistaPremiumControlador(frameTelaCadastroCorrentista, caixaTextoPrimeiroCampo, caixaTextoPrimeiroCampo, terceiroCampo);
 		botaoAlterar.addActionListener(alteraCorrentistaControlador);
 		
 

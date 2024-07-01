@@ -11,108 +11,107 @@ import entidades.Correntista;
 import entidades.Endereco;
 
 public class DaoCorrentistaPadrao {
-	
+
 	public boolean salvarCorrentista(CorrentistaPadrao correntista) {
-		
+
 		boolean salvamento = false;
-		
+
 		FabricaConexao conexaoConectarBancoTeste = new FabricaConexao();
 		Connection connectionBaseTeste = null;
 		PreparedStatement preparaComandoSQL = null;
-		
-		
-		String comandoSqlInsert = "insert into correntista (nome, cpf, cep, qtdTransacoes, email, localidade, logradouro, bairro, uf) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	
-		
+
+		String comandoSqlInsert = "insert into correntista (nome, cpf, cep, qtdTransacoes, email, localidade, logradouro, bairro, uf, anuidade) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
 		try {
-			
+
 			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroCorrentista();
-			
-			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlInsert);	
-			
+
+			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlInsert);
+
 			preparaComandoSQL.setString(1, correntista.getNome());
 			preparaComandoSQL.setString(2, correntista.getCpf());
-			preparaComandoSQL.setString(3, correntista.getEndereco().getCep()); 
+			preparaComandoSQL.setString(3, correntista.getEndereco().getCep());
 			preparaComandoSQL.setString(4, correntista.getQtdTransacao().toString());
 			preparaComandoSQL.setString(5, correntista.getEmail());
 			preparaComandoSQL.setString(6, correntista.getEndereco().getLocalidade());
 			preparaComandoSQL.setString(7, correntista.getEndereco().getLogradouro());
 			preparaComandoSQL.setString(8, correntista.getEndereco().getBairro());
 			preparaComandoSQL.setString(9, correntista.getEndereco().getUf());
-			
+
 			preparaComandoSQL.execute();
-		
+
 			System.out.println("Correntista registrado com sucesso");
-			
+
 			salvamento = true;
-			
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			System.out.println("Nao foi possivel registrar esse correntista");
-			
-		}finally { 
-			
+
+		} finally {
+
 			try {
-				if(connectionBaseTeste != null) {
+				if (connectionBaseTeste != null) {
 					connectionBaseTeste.close();
 				}
 				if (preparaComandoSQL != null) {
 					preparaComandoSQL.close();
 				}
 
-				
 			} catch (Exception e2) {
 				System.out.println("Não foi possível fechar a conexão");
 			}
-			
+
 		}
-	
+
 		return salvamento;
 	}
-	
+
 	public List<CorrentistaPadrao> retornaListaDeCorrentistas() {
 
 		String comandoSqlBuscarCorrentista = "SELECT * FROM correntista";
-		List<CorrentistaPadrao> listaCorrentista = new ArrayList<>(); 
+		List<CorrentistaPadrao> listaCorrentista = new ArrayList<>();
 		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
 
 		Connection connectionBaseExemplo = null;
-		PreparedStatement preparaOcomandoSQL = null; 
+		PreparedStatement preparaOcomandoSQL = null;
 		ResultSet resultadoDaTabelaDoBanco = null;
 
 		try {
 
-			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroCorrentista(); 
-																								
+			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroCorrentista();
+
 			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlBuscarCorrentista);
 			resultadoDaTabelaDoBanco = preparaOcomandoSQL.executeQuery();
 
 			while (resultadoDaTabelaDoBanco.next()) {
-				
+
 				CorrentistaPadrao correntista = new CorrentistaPadrao();
-				
+
 				Endereco endereco = new Endereco();
 
 				correntista.setNome(resultadoDaTabelaDoBanco.getString("nome"));
 				correntista.setCpf(resultadoDaTabelaDoBanco.getString("cpf"));
-				endereco.setCep(resultadoDaTabelaDoBanco.getString("cep"));;
+				correntista.setEmail(resultadoDaTabelaDoBanco.getString("email"));
+				endereco.setCep(resultadoDaTabelaDoBanco.getString("cep"));
+				;
 				endereco.setBairro(resultadoDaTabelaDoBanco.getString("bairro"));
 				endereco.setLogradouro(resultadoDaTabelaDoBanco.getString("logradouro"));
 				endereco.setLocalidade(resultadoDaTabelaDoBanco.getString("localidade"));
 				endereco.setUf(resultadoDaTabelaDoBanco.getString("uf"));
-				
+
 				correntista.setEndereco(endereco);
-				
-				listaCorrentista.add(correntista); 
+
+				listaCorrentista.add(correntista);
 			}
 
 		} catch (Exception e) {
 			System.out.println("Erro ao buscar a lista de Correntistas");
-		} finally { 
+		} finally {
 			try {
 				if (connectionBaseExemplo != null) {
 					connectionBaseExemplo.close();
-												
+
 				}
 				if (preparaOcomandoSQL != null) {
 					preparaOcomandoSQL.close();
@@ -126,38 +125,38 @@ public class DaoCorrentistaPadrao {
 		return listaCorrentista;
 
 	}
-	
+
 	public boolean deletarCorrentista(String cpf) {
 
 		boolean deletar = false;
 
 		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
-		Connection connectionBaseExemplo = null; 
-		PreparedStatement preparaOcomandoSQL = null; 
+		Connection connectionBaseExemplo = null;
+		PreparedStatement preparaOcomandoSQL = null;
 
-		String comandoSqlDelete = "DELETE FROM correntista WHERE cpf = ?;"; 
+		String comandoSqlDelete = "DELETE FROM correntista WHERE cpf = ?;";
 
 		try {
-			
-			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroCorrentista(); 
-			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlDelete);																			
+
+			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroCorrentista();
+			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlDelete);
 			preparaOcomandoSQL.setString(1, cpf);
 
-			preparaOcomandoSQL.execute(); 
+			preparaOcomandoSQL.execute();
 
 			System.out.println("Correntista Deletado");
 
-			deletar = true; 
+			deletar = true;
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			System.out.println(" Não foi possivel deletar");
 
-		} finally { 
+		} finally {
 			try {
 				if (connectionBaseExemplo != null) {
 					connectionBaseExemplo.close();
-													
+
 				}
 				if (preparaOcomandoSQL != null) {
 					preparaOcomandoSQL.close();
@@ -172,44 +171,43 @@ public class DaoCorrentistaPadrao {
 		return deletar;
 
 	}
-	
+
 	public boolean alterarCorrentista(CorrentistaPadrao correntista) {
+		boolean salvamento = false;
 
-		boolean alterar = false;
+		FabricaConexao conexaoConectarBancoTeste = new FabricaConexao();
+		Connection connectionBaseTeste = null;
+		PreparedStatement preparaComandoSQL = null;
 
-		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
-		Connection connectionBaseExemplo = null; 
-		PreparedStatement preparaOcomandoSQL = null; 
+		String comandoSqlUpdate = "UPDATE correntista SET nome = ?, email = ? WHERE cpf = ?;";
 
-		String comandoSqlUpdate = "UPDATE correntista SET nome = ?, cep = ? WHERE cpf = ?;"; //Exemplo CEP = 00000-000 , CPF = 000.000.000-00 
-		
 		try {
-			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroCorrentista(); 
-			
-			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlUpdate);
-													
-			preparaOcomandoSQL.setString(1, correntista.getNome());																			
-			preparaOcomandoSQL.setString(2, correntista.getCpf());
-			preparaOcomandoSQL.setString(3, correntista.getEndereco().getCep());
+			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroCorrentista();
 
-			preparaOcomandoSQL.execute(); 
+			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlUpdate);
+
+			preparaComandoSQL.setString(1, correntista.getNome());
+			preparaComandoSQL.setString(2, correntista.getCpf());
+			preparaComandoSQL.setString(3, correntista.getEmail());
+
+			preparaComandoSQL.execute();
 
 			System.out.println("Correntista Alterado");
 
-			alterar = true; 
+			salvamento = true;
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			System.out.println(" Não foi possivel alterar");
 
-		} finally { 
+		} finally {
 			try {
-				if (connectionBaseExemplo != null) {
-					connectionBaseExemplo.close();
-													
+				if (connectionBaseTeste != null) {
+					connectionBaseTeste.close();
+
 				}
-				if (preparaOcomandoSQL != null) {
-					preparaOcomandoSQL.close();
+				if (connectionBaseTeste != null) {
+					connectionBaseTeste.close();
 				}
 
 			} catch (Exception e2) {
@@ -218,11 +216,8 @@ public class DaoCorrentistaPadrao {
 
 		}
 
-		return alterar;
+		return salvamento;
 
 	}
-	
-	
-
 
 }

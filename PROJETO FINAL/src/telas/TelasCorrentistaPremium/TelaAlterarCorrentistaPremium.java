@@ -1,8 +1,6 @@
-package telas.TelasCorrentistaPadrao;
+package telas.TelasCorrentistaPremium;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -11,13 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
 import controlador.ControladorCorrentistaPadrao.TelaAlterarCorrentistaControlador;
-import entidades.CorrentistaPadrao;
+import controlador.ControladorCorrentistaPremium.TelaAlterarCorrentistaPremiumControlador;
+import entidades.CorrentistaPremium;
 
-public class TelaAlterarCorrentista {
-
-	public void alterarCorrentista(List<CorrentistaPadrao> listaCorrentistas) {
+public class TelaAlterarCorrentistaPremium {
+	
+	
+	public void alterarCorrentistaPremium(List<CorrentistaPremium> listaCorrentistas) {
 
 		int quantidadeDeLinhas = listaCorrentistas.size();
 
@@ -26,7 +25,7 @@ public class TelaAlterarCorrentista {
 		int posicaoColuna = 0;
 		int posicaoLinha = 0;
 
-		for (CorrentistaPadrao correntista : listaCorrentistas) {
+		for (CorrentistaPremium correntista : listaCorrentistas) {
 
 			tabelaString[posicaoLinha][posicaoColuna] = correntista.getCpf();
 			posicaoColuna++;
@@ -73,7 +72,7 @@ public class TelaAlterarCorrentista {
 		frameListarCorrentista.add(panelListarAtendente);
 		frameListarCorrentista.setVisible(true);
 		
-		TelaAlterarCorrentistaControlador alterarCorrentistaControlador = new TelaAlterarCorrentistaControlador(frameListarCorrentista, cpfTextField);
+		TelaAlterarCorrentistaPremiumControlador alterarCorrentistaControlador = new TelaAlterarCorrentistaPremiumControlador(frameListarCorrentista, cpfTextField);
 		botaoAlterar.addActionListener(alterarCorrentistaControlador);
 		botaoMenu.addActionListener(alterarCorrentistaControlador);
 		

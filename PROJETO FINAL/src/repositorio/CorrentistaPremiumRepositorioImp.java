@@ -41,9 +41,9 @@ public class CorrentistaPremiumRepositorioImp implements CorrentistaPremiumRepos
 	}
 
 	@Override
-	public boolean alterarCorrentistaRepositorio(CorrentistaPremium correntistaPremium, String cpf) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean alterarCorrentistaPremiumRepositorio(CorrentistaPremium correntistaPremium) {
+		DaoCorrentistaPremium daoCorrentistaPremium = new DaoCorrentistaPremium();
+		return daoCorrentistaPremium.alterarCorrentistaPremium(correntistaPremium);
 	}
 
 	@Override

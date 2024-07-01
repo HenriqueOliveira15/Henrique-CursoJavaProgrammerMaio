@@ -11,7 +11,7 @@ public interface CorrentistaRepositorio {
 
 	public boolean excluirCorrentistaRepositorio(String cpf);
 
-	public boolean alterarCorrentistaRepositorio(CorrentistaPadrao correntista, String cpf);
+	public boolean alterarCorrentistaRepositorio(CorrentistaPadrao correntista);
 
 	public CorrentistaPadrao buscaCorrentistaPorCpf(String cpf);
 
