@@ -173,24 +173,25 @@ public class DaoCorrentistaPadrao {
 	}
 
 	public boolean alterarCorrentista(CorrentistaPadrao correntista) {
+		
 		boolean salvamento = false;
 
-		FabricaConexao conexaoConectarBancoTeste = new FabricaConexao();
-		Connection connectionBaseTeste = null;
-		PreparedStatement preparaComandoSQL = null;
+		FabricaConexao conexaoFabricaConexao = new FabricaConexao();
+		Connection connectionBaseExemplo = null;
+		PreparedStatement preparaOcomandoSQL = null;
 
 		String comandoSqlUpdate = "UPDATE correntista SET nome = ?, email = ? WHERE cpf = ?;";
 
 		try {
-			connectionBaseTeste = conexaoConectarBancoTeste.criarConexaoCadastroCorrentista();
+			
+			connectionBaseExemplo = conexaoFabricaConexao.criarConexaoCadastroCorrentista();
+			preparaOcomandoSQL = connectionBaseExemplo.prepareStatement(comandoSqlUpdate);
 
-			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlUpdate);
+			preparaOcomandoSQL.setString(1, correntista.getNome());
+			preparaOcomandoSQL.setString(2, correntista.getEmail());
+			preparaOcomandoSQL.setString(3, correntista.getCpf());
 
-			preparaComandoSQL.setString(1, correntista.getNome());
-			preparaComandoSQL.setString(2, correntista.getCpf());
-			preparaComandoSQL.setString(3, correntista.getEmail());
-
-			preparaComandoSQL.execute();
+			preparaOcomandoSQL.execute();
 
 			System.out.println("Correntista Alterado");
 
@@ -202,12 +203,12 @@ public class DaoCorrentistaPadrao {
 
 		} finally {
 			try {
-				if (connectionBaseTeste != null) {
-					connectionBaseTeste.close();
+				if (connectionBaseExemplo != null) {
+					connectionBaseExemplo.close();
 
 				}
-				if (connectionBaseTeste != null) {
-					connectionBaseTeste.close();
+				if (connectionBaseExemplo != null) {
+					connectionBaseExemplo.close();
 				}
 
 			} catch (Exception e2) {

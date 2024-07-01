@@ -28,20 +28,14 @@ public class TelaAlterarCorrentistaControlador implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		CorrentistaPadrao correntista = correntistaRepositorioImp.buscaCorrentistaPorCpf(cpf.getText());
 		
-		if(e.getActionCommand().equals("ALTERAR")) {
-			
-			System.out.println("ir para alterar");
-			CorrentistaPadrao correntista = correntistaRepositorioImp.buscaCorrentistaPorCpf(cpf.getText());
-			
-			if(correntista != null){
-				formularioAlteraCorrentista.chamarTelaCadastroCorrentista(correntista);	
-				telaListarAlterar.setVisible(false);
-			}else {
-				JOptionPane.showMessageDialog(null, "O CPF "+ cpf.getText() + " não foi Encontrado" );
-			}
-			
+		if( correntista == null) {
+			JOptionPane.showMessageDialog(null, "Não foi encontrado o seguinte cpf: " + cpf.getText());
+		} else {
+			formularioAlteraCorrentista.chamarTelaCadastroCorrentista(correntista);
 		}
+		
 		
 		if(e.getActionCommand().equals("MENU")){
 			System.out.println("Voltar para o menu");

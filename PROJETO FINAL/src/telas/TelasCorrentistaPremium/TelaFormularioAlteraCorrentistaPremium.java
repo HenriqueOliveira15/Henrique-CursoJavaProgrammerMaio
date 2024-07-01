@@ -51,7 +51,7 @@ public class TelaFormularioAlteraCorrentistaPremium {
 		frameTelaCadastroCorrentista.add(panelTelaCadastroCorrentista);
 		frameTelaCadastroCorrentista.setVisible(true);
 		
-		TelaFormularioAlteraCorrentistaPremiumControlador alteraCorrentistaControlador = new TelaFormularioAlteraCorrentistaPremiumControlador(frameTelaCadastroCorrentista, caixaTextoPrimeiroCampo, caixaTextoPrimeiroCampo, terceiroCampo);
+		TelaFormularioAlteraCorrentistaPremiumControlador alteraCorrentistaControlador = new TelaFormularioAlteraCorrentistaPremiumControlador(frameTelaCadastroCorrentista, caixaTextoPrimeiroCampo, caixaTextoTerceiroCampo, correntista.getCpf());
 		botaoAlterar.addActionListener(alteraCorrentistaControlador);
 		
 

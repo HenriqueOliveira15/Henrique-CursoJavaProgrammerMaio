@@ -31,11 +31,11 @@ public class TelaFormularioAlteraCorrentistaControlador implements ActionListene
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		alterarCorrentistaRepositorio();
+		alterarCorrentistaNoBanco();
 		
 	}
 
-	private void alterarCorrentistaRepositorio() {
+	private void alterarCorrentistaNoBanco() {
 		CorrentistaPadrao correntista = new CorrentistaPadrao();
 		correntista.setCpf(cpf);
 		correntista.setNome(nome.getText());

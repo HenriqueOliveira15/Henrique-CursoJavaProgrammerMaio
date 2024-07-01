@@ -185,8 +185,9 @@ public class DaoCorrentistaPremium {
 			preparaComandoSQL = connectionBaseTeste.prepareStatement(comandoSqlUpdate);
 
 			preparaComandoSQL.setString(1, correntista.getNome());
-			preparaComandoSQL.setString(2, correntista.getCpf());
-			preparaComandoSQL.setString(3, correntista.getEmail());
+			preparaComandoSQL.setString(2, correntista.getEmail());
+			preparaComandoSQL.setString(3, correntista.getCpf());
+
 
 			preparaComandoSQL.execute();
 
